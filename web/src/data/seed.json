@@ -1,0 +1,184 @@
+{
+  "settings": {
+    "phone": "(336) 745-8600",
+    "email": "kerney@accessionbuilders.com",
+    "serviceArea": "Winston-Salem & the Triad",
+    "licenseNumber": "[number]",
+    "sisterCompany": "Red Clay Crawl Space Repair",
+    "footerAbout": "Residential specialty contractor. Structural, water & moisture, interiors and outdoor living, built to one standard.",
+    "headerCtaLabel": "Free inspection",
+    "menuCtaLabel": "Consultation",
+    "menuImage": { "src": "/assets/photos/fig-porch-ceiling.jpg", "alt": "Tongue-and-groove porch ceiling with exposed beams" }
+  },
+  "services": [
+    {
+      "name": "Structural",
+      "link": "#fix",
+      "items": ["Crawl space repair", "Foundation repair", "Joist & beam sistering", "Piers & support posts", "Sill plate & rim joists"]
+    },
+    {
+      "name": "Water & moisture",
+      "link": "#fix",
+      "items": ["Encapsulation", "Vapor barriers", "French drains", "Catch basins & downspouts", "Basement waterproofing"]
+    },
+    {
+      "name": "Interiors",
+      "link": "#plan",
+      "items": ["Basement finishing"]
+    },
+    {
+      "name": "Outdoor living",
+      "link": "#plan",
+      "items": ["Stone patios & walkways", "Retaining walls", "Fire pits", "Pergolas & arbors", "Decks & woodwork"]
+    }
+  ],
+  "home": {
+    "seoTitle": "Accession Builders | Foundation, Crawl Space & Outdoor Living in King, NC",
+    "seoDescription": "Foundation and crawl space repair done right the first time, plus the porches, stone work and rooms that sit on top of it. One crew in King, NC, from the footing up.",
+    "hero": {
+      "rail": "Fix a problem  ·  Plan a project  ·  One crew",
+      "eyebrow": "Foundation  ·  Crawl space  ·  Outdoor living",
+      "eyebrowShort": "Foundation  ·  Outdoor living",
+      "heading": "From footing\nto",
+      "headingAccent": "finish.",
+      "lede": "Foundation and crawl space repair done right the first time, plus the porches, stone work and rooms that sit on top of it. One crew in King, NC, from the footing up.",
+      "ledeShort": "Foundation and crawl space repair done right the first time, plus the porches, stone work and rooms that sit on top of it. One crew in King, NC.",
+      "primaryLabel": "Get a free inspection",
+      "secondaryLabel": "See our work",
+      "image": { "src": "/assets/photos/hero-porch-ceiling.jpg", "alt": "Tongue-and-groove porch ceiling with exposed beams and two ceiling fans" },
+      "caption": "Fig. 1 — Tongue-and-groove porch ceiling with exposed beams.",
+      "paths": [
+        { "eyebrow": "01  ·  Something wrong?", "title": "Fix a problem", "meta": "Foundation · Crawl space · Drainage", "link": "#fix" },
+        { "eyebrow": "02  ·  Something new?", "title": "Plan a project", "meta": "Porches · Stone & patios · Interiors", "link": "#plan" }
+      ]
+    },
+    "fix": {
+      "eyebrow": "01  ·  Fix a problem",
+      "heading": "Something wrong",
+      "headingAccent": "under the house?",
+      "intro": "Start with what you're seeing. We'll come out, go under the house, take photos and tell you plainly what's going on and what it will take to fix it.",
+      "introShort": "Start with what you're seeing. We'll come out, go under the house, take photos and tell you plainly what's going on.",
+      "problems": [
+        {
+          "title": "Floors that sag or bounce",
+          "body": "Usually tired joists or failing supports. We sister joists, add piers and get the floor level and solid again.",
+          "bodyShort": "Tired joists or failing supports. We sister joists, add piers and level the floor.",
+          "linkLabel": "Crawl space & foundation repair",
+          "linkLabelShort": "Foundation repair",
+          "image": { "src": "/assets/photos/symptom-floors.jpg", "alt": "Crawl space with block piers and sagging joists" }
+        },
+        {
+          "title": "Water in the crawl space",
+          "body": "Standing water and damp air lead to mold and rot. We seal it up and fix where the water gets in.",
+          "bodyShort": "We seal it up and fix where the water gets in, before it turns into mold and rot.",
+          "linkLabel": "Moisture control & encapsulation",
+          "linkLabelShort": "Moisture control",
+          "image": { "src": "/assets/photos/symptom-crawlspace.jpg", "alt": "Encapsulated crawl space with white vapor barrier" }
+        },
+        {
+          "title": "Water around the house",
+          "body": "Water that sits by the foundation finds its way in. French drains and catch basins move it away for good.",
+          "bodyShort": "French drains and catch basins move water away from the foundation for good.",
+          "linkLabel": "Drainage & French drains",
+          "linkLabelShort": "Drainage",
+          "image": { "src": "/assets/photos/symptom-drainage.jpg", "alt": "New drainage along the side of a brick house" }
+        },
+        {
+          "title": "Cracks in the foundation",
+          "body": "Some cracks are cosmetic and some aren't. We'll tell you which, and repair the ones that matter.",
+          "bodyShort": "We'll tell you which cracks matter, and repair the ones that do.",
+          "linkLabel": "Foundation repair",
+          "placeholder": "Photo needed: foundation crack"
+        }
+      ],
+      "inspection": {
+        "eyebrow": "Free inspection",
+        "heading": "We go under the house",
+        "headingAccent": "so you don’t have to.",
+        "body": "No pressure and no inflated estimate. You get photos of what we found, a plain explanation and a fair price we stick to.",
+        "buttonLabel": "Book a free inspection",
+        "steps": [
+          { "title": "Inspect and explain", "body": "We look at the whole picture, take photos, and walk you through what's really going on.", "bodyShort": "Photos and a plain walk-through of what we found." },
+          { "title": "Quote it straight", "body": "A clear, fair price up front. No inflated estimates and no surprise change orders.", "bodyShort": "A clear, fair price up front. No surprise change orders." },
+          { "title": "Build it and clean up", "body": "Work finished when we said it would be, and your property left spotless.", "bodyShort": "Finished when we said, and your property left spotless." }
+        ]
+      }
+    },
+    "featured": {
+      "eyebrow": "The same crew  ·  The same standard",
+      "heading": "Below the house,\nor out back.",
+      "intro": "This cottage started with rotted framing and sheathing, and ended with new siding and new front steps. The work nobody sees gets the same care as the work everybody does.",
+      "linkLabel": "Read the cottage story",
+      "linkLabelShort": "Read the case study"
+    },
+    "plan": {
+      "eyebrow": "02  ·  Plan a project",
+      "heading": "Porches, stone and rooms",
+      "headingAccent": "built to be looked at.",
+      "pillars": [
+        { "title": "Outdoor living", "body": "Stone patios, flagstone walks, retaining walls and fire pits, laid level and built to last." },
+        { "title": "Porches & decks", "body": "Covered porches, tongue-and-groove ceilings, decks and railings, built around how you use them." },
+        { "title": "Interiors", "body": "Bathrooms, tile and finished basements, with everything behind the walls done right first." }
+      ],
+      "figures": [
+        { "image": { "src": "/assets/photos/fig-porch-ceiling.jpg", "alt": "Tongue-and-groove porch ceiling with exposed beams" }, "caption": "Tongue-and-groove porch ceiling with exposed beams." },
+        { "image": { "src": "/assets/photos/fig-flagstone.jpg", "alt": "Flagstone walk beside a stone column" }, "caption": "Flagstone walk, cut tight to the stone." },
+        { "image": { "src": "/assets/photos/fig-tile.jpg", "alt": "Dark tile run floor to ceiling" }, "caption": "Tile run straight and plumb to the ceiling." },
+        { "image": { "src": "/assets/photos/fig-stone.jpg", "alt": "Hand-set stone retaining wall" }, "caption": "Hand-set stone, level and true." }
+      ]
+    },
+    "crew": {
+      "eyebrow": "The crew",
+      "heading": "A small crew,",
+      "headingAccent": "on purpose.",
+      "body": "The same people who quote your job are the ones who build it. [A few lines from Kerney on how he started and what he expects from every job.]",
+      "placeholder": "Photo needed: crew portrait",
+      "buttonLabel": "More about Accession"
+    },
+    "faq": {
+      "eyebrow": "Questions",
+      "heading": "Good questions,",
+      "headingAccent": "straight answers.",
+      "linkLabel": "All questions & answers"
+    },
+    "cta": {
+      "eyebrow": "Start a project",
+      "heading": "Let’s build something",
+      "headingAccent": "worth keeping.",
+      "body": "Tell us what you’re seeing, under the house, around it or out back. We’ll come take a look and give you a written estimate, free.",
+      "primaryLabel": "Get a free inspection",
+      "secondaryLabel": "Plan a project"
+    }
+  },
+  "project": {
+    "title": "The cottage",
+    "location": "[Town], NC",
+    "disciplines": "Structural · Outdoor living",
+    "scope": "Rotted framing and sheathing replaced, new siding and new front steps",
+    "partners": "[Partners, if any]",
+    "duration": "[Weeks]",
+    "before": { "src": "/assets/photos/cottage-before.jpg", "alt": "Cottage before: rotted framing and sheathing exposed" },
+    "after": { "src": "/assets/photos/cottage-after.jpg", "alt": "Cottage after: new white siding and new front steps" }
+  },
+  "crewMembers": [
+    { "name": "Kerney Black", "role": "Owner" },
+    { "name": "James Baston", "role": "Crew" },
+    { "name": "Frank", "role": "Crew" },
+    { "name": "Ian", "role": "Crew" }
+  ],
+  "review": {
+    "quote": "After getting an inflated estimate from a large foundation company, I chose Accession Builders. They were highly recommended by my engineer. The work was completed exactly when they said it would be, and for the price quoted.",
+    "author": "Betsy N.",
+    "service": "Crawl space & foundation",
+    "rating": 5,
+    "source": "Google"
+  },
+  "faqs": [
+    { "question": "Do you charge for estimates?", "answer": "No. Consultations are free, and you get a written price before any work starts. [Kerney to confirm]" },
+    { "question": "Can one crew really handle everything from structure to patios?", "answer": "[Answer needed]" },
+    { "question": "Do you work with engineers and inspectors?", "answer": "[Answer needed]" },
+    { "question": "How do I know if my crawl space needs work?", "answer": "[Answer needed]" },
+    { "question": "Are you licensed and insured?", "answer": "[Answer needed]" },
+    { "question": "What areas do you serve?", "answer": "[Answer needed]" }
+  ]
+}

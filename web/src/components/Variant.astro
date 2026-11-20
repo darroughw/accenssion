@@ -1,0 +1,7 @@
+---
+// Renders desktop copy, plus a shorter mobile version when the CMS provides one.
+interface Props { full?: string; short?: string }
+const { full = '', short } = Astro.props;
+const hasShort = short && short.trim() && short !== full;
+---
+{hasShort ? (<><span class="d">{full}</span><span class="m">{short}</span></>) : full}

@@ -1,0 +1,58 @@
+---
+import Logo from './Logo.astro';
+import Button from './Button.astro';
+import { imgUrl, telHref, type SiteContent } from '../lib/content';
+interface Props { settings: SiteContent['settings']; services: SiteContent['services'] }
+const { settings, services } = Astro.props;
+const tel = telHref(settings.phone);
+const pad = (n: number) => String(n).padStart(2, '0');
+---
+<div class="menu" id="site-menu" role="dialog" aria-modal="true" aria-label="Site menu" hidden>
+  <div class="menu__header">
+    <div class="site-header__left">
+      <button class="menu-close" type="button">
+        <img src="/assets/icon-close.svg" width="20" height="20" alt="" />
+        <span>Close</span>
+      </button>
+    </div>
+    <Logo />
+    <div class="site-header__right">
+      <a class="site-header__phone" href={tel}>{settings.phone}</a>
+      <Button class="site-header__cta" variant="brass" href="#contact" label={settings.menuCtaLabel} />
+    </div>
+  </div>
+  <div class="menu__body">
+    <nav class="menu__disciplines" aria-label="Services">
+      {services.map((s, i) => (
+        <div class:list={['discipline', { 'is-open': i === 0 }]}>
+          <a class="discipline__row" href={s.link || '#fix'}>
+            <span class="discipline__num">{pad(i + 1)}</span>
+            <span class="discipline__title">{s.name}</span>
+            <img class="discipline__arrow" src="/assets/icon-arrow-24-light.svg" width="24" height="24" alt="" />
+            <img class="discipline__arrow discipline__arrow--active" src="/assets/icon-arrow-24-brass.svg" width="24" height="24" alt="" />
+          </a>
+          <ul class="discipline__services">
+            {(s.items ?? []).map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      ))}
+    </nav>
+    <aside class="menu__aside">
+      {settings.menuImage?.src && (
+        <div class="menu__photo arch"><img src={imgUrl(settings.menuImage.src, 700)} alt={settings.menuImage.alt ?? ''} loading="lazy" /></div>
+      )}
+      <ul class="menu__links">
+        <li><a href="#work">Our work</a></li>
+        <li><a href="#fix">How we work</a></li>
+        <li><a href="#crew">About the crew</a></li>
+        <li><a href="#questions">Questions</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <p class="menu__contact">
+        Call or text <a href={tel}>{settings.phone}</a><br />
+        <a href={`mailto:${settings.email}`}>{settings.email}</a><br />
+        {settings.serviceArea}
+      </p>
+    </aside>
+  </div>
+</div>

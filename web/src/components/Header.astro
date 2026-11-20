@@ -1,0 +1,23 @@
+---
+import Logo from './Logo.astro';
+import Button from './Button.astro';
+import { telHref, type SiteContent } from '../lib/content';
+interface Props { settings: SiteContent['settings'] }
+const { settings } = Astro.props;
+const tel = telHref(settings.phone);
+---
+<header class="site-header">
+  <div class="site-header__left">
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+      <img class="menu-toggle__icon--desktop" src="/assets/icon-menu.svg" width="28" height="12" alt="" />
+      <img class="menu-toggle__icon--mobile" src="/assets/icon-menu-44.svg" width="44" height="44" alt="" />
+      <span class="menu-toggle__label">Menu</span>
+    </button>
+  </div>
+  <Logo />
+  <div class="site-header__right">
+    <a class="site-header__phone" href={tel}>{settings.phone}</a>
+    <Button class="site-header__cta" variant="brass" href="#contact" label={settings.headerCtaLabel} />
+    <a class="call-btn" href={tel} aria-label={`Call ${settings.phone}`}><img src="/assets/icon-call-44.svg" width="44" height="44" alt="" /></a>
+  </div>
+</header>

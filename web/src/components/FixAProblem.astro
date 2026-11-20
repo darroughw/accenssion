@@ -1,0 +1,60 @@
+---
+import Button from './Button.astro';
+import Variant from './Variant.astro';
+import { imgUrl, type SiteContent } from '../lib/content';
+interface Props { fix: SiteContent['home']['fix'] }
+const { fix } = Astro.props;
+const { inspection } = fix;
+const pad = (n: number) => String(n).padStart(2, '0');
+---
+<section class="section fix" id="fix">
+  <div class="container">
+    <div class="split-head">
+      <div class="stack-24">
+        <p class="eyebrow">{fix.eyebrow}</p>
+        <h2 class="h-display h-56">{fix.heading}<br /><em class="bronze">{fix.headingAccent}</em></h2>
+      </div>
+      <p class="body-17 fix__intro"><Variant full={fix.intro} short={fix.introShort} /></p>
+    </div>
+
+    <ol class="symptoms">
+      {fix.problems.map((p: any, i: number) => (
+        <li class="symptom">
+          {p.image?.src ? (
+            <div class="symptom__photo"><img src={imgUrl(p.image.src, 640)} alt={p.image.alt ?? ''} loading="lazy" /></div>
+          ) : (
+            <div class="symptom__photo symptom__photo--needed">
+              <span><span class="d">{p.placeholder || 'Photo needed'}</span><span class="m">Photo<br />needed</span></span>
+            </div>
+          )}
+          <span class="symptom__num">{pad(i + 1)}</span>
+          <div class="symptom__text">
+            <h3 class="symptom__title">{p.title}</h3>
+            <p class="symptom__body"><Variant full={p.body} short={p.bodyShort} /></p>
+            <a class="symptom__link" href="#contact"><Variant full={p.linkLabel} short={p.linkLabelShort} />&nbsp;&nbsp;→</a>
+          </div>
+        </li>
+      ))}
+    </ol>
+
+    <div class="inspection">
+      <div class="inspection__offer">
+        <p class="eyebrow">{inspection.eyebrow}</p>
+        <h3 class="h-display h-44">{inspection.heading}<br /><em class="bronze">{inspection.headingAccent}</em></h3>
+        <p class="inspection__body">{inspection.body}</p>
+        <Button variant="solid" href="#contact" label={inspection.buttonLabel} />
+      </div>
+      <ol class="steps">
+        {inspection.steps.map((s, i) => (
+          <li class="step">
+            <span class="step__num">{pad(i + 1)}</span>
+            <div>
+              <h4 class="step__title">{s.title}</h4>
+              <p class="step__body"><Variant full={s.body} short={s.bodyShort} /></p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+</section>

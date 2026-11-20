@@ -1,0 +1,32 @@
+---
+import TextLink from './TextLink.astro';
+import type { SiteContent } from '../lib/content';
+interface Props { faq: SiteContent['home']['faq']; items: SiteContent['faqs'] }
+const { faq, items } = Astro.props;
+---
+<section class="section faq" id="questions">
+  <div class="container faq__inner">
+    <div class="faq__intro">
+      <div class="stack-20">
+        <p class="eyebrow">{faq.eyebrow}</p>
+        <h2 class="h-display h-60">{faq.heading}<br /><em>{faq.headingAccent}</em></h2>
+      </div>
+      <TextLink href="#questions" label={faq.linkLabel} />
+    </div>
+    <div class="faq__list">
+      {items.map((item, i) => {
+        const open = i === 0;
+        const id = i + 1;
+        return (
+          <div class:list={['faq-row', { 'is-open': open }]}>
+            <h3><button class="faq-row__q" type="button" aria-expanded={String(open)} aria-controls={`faq-a${id}`} id={`faq-q${id}`}>
+              <span>{item.question}</span>
+              <span class="faq-row__icon"><img src="/assets/icon-plus.svg" width="16" height="16" alt="" /></span>
+            </button></h3>
+            <div class="faq-row__a" id={`faq-a${id}`} role="region" aria-labelledby={`faq-q${id}`} hidden={!open}><p>{item.answer}</p></div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,32 @@
+---
+import { imgUrl, type SiteContent } from '../lib/content';
+interface Props { plan: SiteContent['home']['plan'] }
+const { plan } = Astro.props;
+const roman = ['I.', 'II.', 'III.', 'IV.', 'V.', 'VI.'];
+---
+<section class="section standard" id="plan">
+  <div class="container">
+    <div class="stack-20">
+      <p class="eyebrow eyebrow--brass">{plan.eyebrow}</p>
+      <h2 class="h-display h-76 standard__title">{plan.heading} <em>{plan.headingAccent}</em></h2>
+    </div>
+    <div class="pillars">
+      {plan.pillars.map((p, i) => (
+        <div class="pillar">
+          <span class="pillar__num">{roman[i]}</span>
+          <span class="pillar__rule" aria-hidden="true"></span>
+          <h3 class="pillar__title">{p.title}</h3>
+          <p class="pillar__body">{p.body}</p>
+        </div>
+      ))}
+    </div>
+    <div class="figures">
+      {plan.figures.map((f, i) => (
+        <figure class="figure">
+          {f.image?.src && <div class="figure__photo arch"><img src={imgUrl(f.image.src, 640)} alt={f.image.alt ?? ''} loading="lazy" /></div>}
+          <figcaption>Fig. {i + 2} — {f.caption}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

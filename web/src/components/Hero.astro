@@ -1,0 +1,38 @@
+---
+import Button from './Button.astro';
+import Lines from './Lines.astro';
+import Variant from './Variant.astro';
+import { imgUrl, type SiteContent } from '../lib/content';
+interface Props { hero: SiteContent['home']['hero'] }
+const { hero } = Astro.props;
+---
+<section class="hero">
+  {hero.rail && <p class="hero__rail" aria-hidden="true">{hero.rail}</p>}
+  <div class="hero__copy">
+    <div class="hero__intro">
+      <p class="eyebrow eyebrow--brass"><Variant full={hero.eyebrow} short={hero.eyebrowShort} /></p>
+      <h1 class="hero__title"><Lines text={hero.heading} />{hero.headingAccent && <>{' '}<em>{hero.headingAccent}</em></>}</h1>
+      <p class="hero__lede"><Variant full={hero.lede} short={hero.ledeShort} /></p>
+      <div class="actions">
+        <Button variant="brass" href="#contact" label={hero.primaryLabel} />
+        <Button variant="line-dark" href="#work" label={hero.secondaryLabel} />
+      </div>
+    </div>
+    <div class="paths">
+      {hero.paths.map((p) => (
+        <a class="path" href={p.link}>
+          <span class="path__eyebrow">{p.eyebrow}</span>
+          <span class="path__title">{p.title} <span class="path__arrow" aria-hidden="true">→</span></span>
+          <span class="path__meta">{p.meta}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+  <figure class="hero__stage">
+    <span class="hero__arch-line" aria-hidden="true"></span>
+    {hero.image?.src && (
+      <div class="hero__photo arch"><img src={imgUrl(hero.image.src, 1200)} alt={hero.image.alt ?? ''} fetchpriority="high" /></div>
+    )}
+    {hero.caption && <figcaption class="hero__caption">{hero.caption}</figcaption>}
+  </figure>
+</section>

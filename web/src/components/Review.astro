@@ -1,0 +1,13 @@
+---
+import type { SiteContent } from '../lib/content';
+interface Props { review: SiteContent['review'] }
+const { review } = Astro.props;
+const rating = Math.max(0, Math.min(5, Math.round(review.rating ?? 5)));
+---
+<section class="review">
+  <p class="eyebrow eyebrow--brass">
+    <span role="img" aria-label={`${rating} out of 5 stars`}>{'★'.repeat(rating)}</span>&nbsp;&nbsp;&nbsp;{rating.toFixed(1)} on {review.source}
+  </p>
+  <blockquote class="review__quote">“{review.quote}”</blockquote>
+  <p class="eyebrow eyebrow--stone">{review.author}{review.service && <>&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;{review.service}</>}</p>
+</section>

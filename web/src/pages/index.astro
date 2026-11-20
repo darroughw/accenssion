@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import FixAProblem from '../components/FixAProblem.astro';
+import FeaturedProject from '../components/FeaturedProject.astro';
+import PlanAProject from '../components/PlanAProject.astro';
+import Crew from '../components/Crew.astro';
+import Review from '../components/Review.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { getSiteContent } from '../lib/content';
+
+const content = await getSiteContent();
+const { home } = content;
+---
+<Base title={home.seoTitle} description={home.seoDescription} content={content}>
+  <Hero hero={home.hero} />
+  <FixAProblem fix={home.fix} />
+  <FeaturedProject featured={home.featured} project={content.project} />
+  <PlanAProject plan={home.plan} />
+  <Crew crew={home.crew} members={content.crewMembers} />
+  <Review review={content.review} />
+  <Faq faq={home.faq} items={content.faqs} />
+  <Cta cta={home.cta} settings={content.settings} />
+</Base>

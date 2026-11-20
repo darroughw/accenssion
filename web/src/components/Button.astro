@@ -1,0 +1,12 @@
+---
+type Variant = 'brass' | 'line-dark' | 'line-light' | 'solid';
+interface Props { href: string; label: string; variant: Variant; class?: string }
+const { href, label, variant, class: extra } = Astro.props;
+const arrow: Record<Variant, string> = {
+  brass: '/assets/icon-arrow-dark.svg',
+  'line-dark': '/assets/icon-arrow-light.svg',
+  'line-light': '/assets/icon-arrow-ink.svg',
+  solid: '/assets/icon-arrow-white.svg',
+};
+---
+<a class:list={['btn', `btn--${variant}`, extra]} href={href}>{label} <img src={arrow[variant]} width="16" height="16" alt="" /></a>

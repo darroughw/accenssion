@@ -1,0 +1,32 @@
+---
+import Logo from './Logo.astro';
+import { telHref, type SiteContent } from '../lib/content';
+interface Props { settings: SiteContent['settings']; services: SiteContent['services'] }
+const { settings, services } = Astro.props;
+const pad = (n: number) => String(n).padStart(2, '0');
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__cols">
+      <div class="footer__brand">
+        <Logo align="left" />
+        <p class="footer__about">{settings.footerAbout}</p>
+        <p class="footer__contact">
+          <a href={telHref(settings.phone)}>{settings.phone}</a><br />
+          <a href={`mailto:${settings.email}`}>{settings.email}</a>
+        </p>
+      </div>
+      {services.map((s, i) => (
+        <div class="footer__col">
+          <h2 class="footer__heading">{pad(i + 1)}&nbsp;&nbsp;{s.name}</h2>
+          <ul>{(s.items ?? []).map((item) => <li>{item}</li>)}</ul>
+        </div>
+      ))}
+    </div>
+    <div class="footer__legal">
+      <p>© {year} Accession Builders LLC&nbsp;&nbsp;·&nbsp;&nbsp;NC General Contractor License #{settings.licenseNumber}&nbsp;&nbsp;·&nbsp;&nbsp;Licensed &amp; insured&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#">Privacy policy</a></p>
+      {settings.sisterCompany && <p>Sister company: {settings.sisterCompany}</p>}
+    </div>
+  </div>
+</footer>

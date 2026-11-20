@@ -1,0 +1,19 @@
+---
+import Button from './Button.astro';
+import { telHref, type SiteContent } from '../lib/content';
+interface Props { cta: SiteContent['home']['cta']; settings: SiteContent['settings'] }
+const { cta, settings } = Astro.props;
+const tel = telHref(settings.phone);
+---
+<section class="cta" id="contact">
+  <div class="stack-20 cta__head">
+    <p class="eyebrow eyebrow--brass">{cta.eyebrow}</p>
+    <h2 class="h-display cta__title">{cta.heading}<br /><em>{cta.headingAccent}</em></h2>
+  </div>
+  <p class="cta__body">{cta.body}</p>
+  <div class="actions">
+    <Button variant="brass" href={tel} label={cta.primaryLabel} />
+    <Button variant="line-dark" href={`mailto:${settings.email}`} label={cta.secondaryLabel} />
+  </div>
+  <p class="cta__phone">Or call or text <a href={tel}>{settings.phone}</a></p>
+</section>

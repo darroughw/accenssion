@@ -1,0 +1,39 @@
+---
+import Lines from './Lines.astro';
+import TextLink from './TextLink.astro';
+import { imgUrl, type SiteContent } from '../lib/content';
+interface Props { featured: SiteContent['home']['featured']; project: SiteContent['project'] }
+const { featured, project } = Astro.props;
+const spec = [
+  ['location', 'Location', project.location],
+  ['disciplines', 'Disciplines', project.disciplines],
+  ['scope', 'Scope', project.scope],
+  ['partners', 'Partners', project.partners],
+  ['duration', 'Duration', project.duration],
+].filter(([, , v]) => v);
+---
+<section class="section featured" id="work">
+  <div class="container">
+    <div class="split-head featured__head">
+      <div class="stack-20">
+        <p class="eyebrow">{featured.eyebrow}</p>
+        <h2 class="h-display h-76"><Lines text={featured.heading} /></h2>
+        <p class="body-17 featured__intro">{featured.intro}</p>
+      </div>
+      <TextLink href="#work" label={featured.linkLabel} labelShort={featured.linkLabelShort} />
+    </div>
+    <div class="before-after">
+      {[['Before', project.before], ['After', project.after]].map(([label, img]: any) => img?.src && (
+        <figure>
+          <div class="before-after__photo"><img src={imgUrl(img.src, 1200)} alt={img.alt ?? ''} loading="lazy" /></div>
+          <figcaption class="eyebrow">{label}</figcaption>
+        </figure>
+      ))}
+    </div>
+    <dl class="spec">
+      {spec.map(([key, label, value]) => (
+        <div class={`spec__item spec__item--${key}`}><dt>{label}</dt><dd>{value}</dd></div>
+      ))}
+    </dl>
+  </div>
+</section>

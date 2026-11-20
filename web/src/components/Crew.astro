@@ -1,0 +1,26 @@
+---
+import Button from './Button.astro';
+import { imgUrl, type SiteContent } from '../lib/content';
+interface Props { crew: SiteContent['home']['crew'] & { photo?: { src: string; alt?: string } | null }; members: SiteContent['crewMembers'] }
+const { crew, members } = Astro.props;
+---
+<section class="section crew" id="crew">
+  <div class="container crew__inner">
+    {crew.photo?.src ? (
+      <div class="crew__photo"><img src={imgUrl(crew.photo.src, 1100)} alt={crew.photo.alt ?? ''} loading="lazy" /></div>
+    ) : (
+      <div class="crew__photo"><span>{crew.placeholder || 'Photo needed: crew portrait'}</span></div>
+    )}
+    <div class="crew__copy">
+      <div class="stack-20">
+        <p class="eyebrow">{crew.eyebrow}</p>
+        <h2 class="h-display h-76">{crew.heading}<br /><em>{crew.headingAccent}</em></h2>
+      </div>
+      <p class="crew__body">{crew.body}</p>
+      <ul class="names">
+        {members.map((m) => (<li><span class="names__name">{m.name}</span><span class="names__role">{m.role}</span></li>))}
+      </ul>
+      <Button variant="line-light" href="#crew" label={crew.buttonLabel} />
+    </div>
+  </div>
+</section>

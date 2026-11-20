@@ -1,0 +1,8 @@
+---
+interface Props { align?: 'center' | 'left' }
+const { align = 'center' } = Astro.props;
+---
+<a class:list={['logo', { 'logo--left': align === 'left' }]} href="/" aria-label="Accession Builders, home">
+  <span class="logo__mark"><img src="/assets/logo-mark.svg" width="73.5" height="83.8076" alt="" /></span>
+  <span class="logo__name">Accession Builders</span>
+</a>
