@@ -1,0 +1,108 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Button from '../../components/Button.astro';
+import TextLink from '../../components/TextLink.astro';
+import Figures from '../../components/Figures.astro';
+import ProjectGrid from '../../components/ProjectGrid.astro';
+import Faq from '../../components/Faq.astro';
+import Cta from '../../components/Cta.astro';
+import { getSiteContent, imgUrl, pad, telHref, type Service } from '../../lib/content';
+
+export async function getStaticPaths() {
+  const { services } = await getSiteContent();
+  return services.map((service, i) => ({ params: { slug: service.slug }, props: { service, index: i } }));
+}
+
+interface Props { service: Service; index: number }
+const { service: s, index } = Astro.props;
+const content = await getSiteContent();
+const { settings } = content;
+const projects = content.projects.filter((p) => p.services.includes(s.slug)).slice(0, 3);
+const faqs = content.faqs.filter((f) => f.service === s.slug);
+
+const toc = [
+  { id: 'signs', label: s.signs.toc },
+  { id: 'work', label: s.work.toc },
+  { id: 'process', label: s.process.toc },
+  ...(projects.length ? [{ id: 'projects', label: 'Projects' }] : []),
+  ...(faqs.length ? [{ id: 'questions', label: 'Questions' }] : []),
+];
+const title = `${s.title} ${s.titleAccent ?? ''}`.replace(/\s+/g, ' ').trim();
+---
+<Base title={`${title} | Accession Builders`} description={s.seoDescription ?? s.intro} image={s.cover?.src}>
+  <section class="service-hero">
+    <div class="container">
+      <Breadcrumbs trail={[{ label: 'Services', href: '/services/' }, { label: s.name }]} />
+      <div class="service-hero__grid">
+        <div class="service-hero__copy">
+          <p class="eyebrow eyebrow--brass">Service {pad(index + 1)}{s.kicker && <>&nbsp;&nbsp;·&nbsp;&nbsp;{s.kicker}</>}</p>
+          <h1 class="h-display service-hero__title">{s.title}{s.titleAccent && <>{' '}<em>{s.titleAccent}</em></>}</h1>
+          <p class="service-hero__intro">{s.intro}</p>
+          <div class="actions">
+            <Button variant="brass" href="/contact/" label="Get a free inspection" />
+            <Button variant="line-dark" href={telHref(settings.phone)} label={`Call ${settings.phone}`} />
+          </div>
+          {settings.serviceAreaLong && <p class="service-hero__area">{settings.serviceAreaLong}</p>}
+        </div>
+        {s.cover?.src && (
+          <figure class="service-hero__cover">
+            <div class="arch-stage">
+              <span class="arch-stage__line" aria-hidden="true"></span>
+              <div class="arch-stage__photo arch"><img src={imgUrl(s.cover.src, 1200)} alt={s.cover.alt ?? ''} fetchpriority="high" /></div>
+            </div>
+            {s.coverCaption && <figcaption>Fig. 1 — {s.coverCaption}</figcaption>}
+          </figure>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <section class="section service-body">
+    <div class="container service-body__inner">
+      <nav class="toc" aria-label="On this page">
+        <p class="eyebrow">On this page</p>
+        <ol>
+          {toc.map((t) => <li><a href={`#${t.id}`} data-toc={t.id}>{t.label}</a></li>)}
+        </ol>
+      </nav>
+      <div class="prose">
+        <section id="signs" class="prose__section">
+          <h2 class="h-display h-44">{s.signs.heading}{s.signs.headingAccent && <>{' '}<em class="bronze">{s.signs.headingAccent}</em></>}</h2>
+          {s.signs.intro && <p class="prose__lede">{s.signs.intro}</p>}
+          <ul class="checklist checklist--dash">
+            {s.signs.items.map((item) => <li><span class="checklist__mark" aria-hidden="true">—</span><span>{item}</span></li>)}
+          </ul>
+        </section>
+        <section id="work" class="prose__section">
+          <h2 class="h-display h-44">{s.work.heading}{s.work.headingAccent && <>{' '}<em class="bronze">{s.work.headingAccent}</em></>}</h2>
+          {s.work.intro && <p class="prose__lede">{s.work.intro}</p>}
+          <ul class="checklist">
+            {s.work.items.map((item, i) => <li><span class="checklist__mark checklist__mark--num" aria-hidden="true">{pad(i + 1)}</span><span>{item}</span></li>)}
+          </ul>
+        </section>
+        <section id="process" class="prose__section">
+          <h2 class="h-display h-44">{s.process.heading}{s.process.headingAccent && <>{' '}<em class="bronze">{s.process.headingAccent}</em></>}</h2>
+          <p class="prose__lede">{s.process.body}</p>
+          <TextLink href="/about/#how-we-work" label="How every job runs" />
+        </section>
+      </div>
+    </div>
+  </section>
+
+  {s.details.figures.length > 0 && (
+    <section class="section details">
+      <div class="container">
+        <h2 class="h-display h-56">{s.details.heading}{s.details.headingAccent && <>{' '}<em>{s.details.headingAccent}</em></>}</h2>
+        <Figures figures={s.details.figures} class="figures--three" />
+      </div>
+    </section>
+  )}
+
+  <ProjectGrid heading={s.projectsHeading} headingAccent={s.projectsHeadingAccent} projects={projects} />
+
+  <Faq eyebrow="Questions" heading="About" headingAccent={s.faqHeadingAccent ?? s.name.toLowerCase()}
+       linkLabel="All questions & answers" items={faqs} id={s.slug} tone="paper" />
+
+  <Cta cta={content.home.cta} settings={settings} />
+</Base>

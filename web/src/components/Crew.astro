@@ -1,7 +1,7 @@
 ---
 import Button from './Button.astro';
-import { imgUrl, type SiteContent } from '../lib/content';
-interface Props { crew: SiteContent['home']['crew'] & { photo?: { src: string; alt?: string } | null }; members: SiteContent['crewMembers'] }
+import { imgUrl, type SiteContent, type CrewMember } from '../lib/content';
+interface Props { crew: SiteContent['home']['crew'] & { photo?: { src: string; alt?: string } | null }; members: CrewMember[] }
 const { crew, members } = Astro.props;
 ---
 <section class="section crew" id="crew">
@@ -20,7 +20,7 @@ const { crew, members } = Astro.props;
       <ul class="names">
         {members.map((m) => (<li><span class="names__name">{m.name}</span><span class="names__role">{m.role}</span></li>))}
       </ul>
-      <Button variant="line-light" href="#crew" label={crew.buttonLabel} />
+      <Button variant="line-light" href="/about/" label={crew.buttonLabel} />
     </div>
   </div>
 </section>

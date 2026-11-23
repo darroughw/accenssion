@@ -12,8 +12,8 @@ const tel = telHref(settings.phone);
   </div>
   <p class="cta__body">{cta.body}</p>
   <div class="actions">
-    <Button variant="brass" href={tel} label={cta.primaryLabel} />
-    <Button variant="line-dark" href={`mailto:${settings.email}`} label={cta.secondaryLabel} />
+    <Button variant="brass" href="/contact/" label={cta.primaryLabel} />
+    <Button variant="line-dark" href="/contact/?type=project" label={cta.secondaryLabel} />
   </div>
   <p class="cta__phone">Or call or text <a href={tel}>{settings.phone}</a></p>
 </section>

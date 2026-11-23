@@ -1,0 +1,16 @@
+---
+// Arched photo row with "Fig. n" captions. Entries without a photo show a placeholder.
+import { imgUrl, type Figure } from '../lib/content';
+interface Props { figures: Figure[]; start?: number; class?: string }
+const { figures, start = 2, class: extra } = Astro.props;
+---
+<div class:list={['figures', extra]}>
+  {figures.map((f, i) => (
+    <figure class="figure">
+      {f.image?.src
+        ? <div class="figure__photo arch"><img src={imgUrl(f.image.src, 800)} alt={f.image.alt ?? ''} loading="lazy" /></div>
+        : <div class="figure__photo figure__photo--needed"><span>{f.placeholder || 'Photo needed'}</span></div>}
+      {f.caption && <figcaption>Fig. {start + i} — {f.caption}</figcaption>}
+    </figure>
+  ))}
+</div>

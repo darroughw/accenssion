@@ -3,6 +3,7 @@
     "phone": "(336) 745-8600",
     "email": "kerney@accessionbuilders.com",
     "serviceArea": "Winston-Salem & the Triad",
+    "serviceAreaLong": "Serving Winston-Salem, Greensboro, Kernersville, King, Clemmons and the rest of the Triad.",
     "licenseNumber": "[number]",
     "sisterCompany": "Red Clay Crawl Space Repair",
     "footerAbout": "Residential specialty contractor. Structural, water & moisture, interiors and outdoor living, built to one standard.",
@@ -12,25 +13,256 @@
   },
   "services": [
     {
+      "slug": "structural",
       "name": "Structural",
-      "link": "#fix",
-      "items": ["Crawl space repair", "Foundation repair", "Joist & beam sistering", "Piers & support posts", "Sill plate & rim joists"]
+      "kicker": "Under the house",
+      "items": ["Crawl space repair", "Foundation repair", "Joist & beam sistering", "Piers & support posts", "Sill plate & rim joists"],
+      "title": "Crawl space &",
+      "titleAccent": "foundation repair",
+      "intro": "Sagging floors, soft spots and cracked piers rarely fix themselves. We find the cause, repair the structure under your home, and leave it stronger and drier than we found it.",
+      "cover": { "src": "/assets/photos/crawl-pier-beam.jpg", "alt": "New block pier and beam installed under a sagging floor" },
+      "coverCaption": "New block pier and beam under a sagging floor.",
+      "seoDescription": "Crawl space and foundation repair in Winston-Salem and the Triad: sagging floors, rotted joists, failing piers and sill plates, fixed at the cause.",
+      "signs": {
+        "toc": "Signs it’s time",
+        "heading": "Signs it’s time to",
+        "headingAccent": "look underneath",
+        "intro": "Most foundation problems show up inside the house first. If you notice any of these, it’s worth having someone crawl under and take a look.",
+        "items": ["Floors that sag, bounce or slope", "Doors and windows that start to stick", "A musty smell or damp air inside", "Standing water, mold or wet insulation under the house", "Cracked, leaning or crumbling piers"]
+      },
+      "work": {
+        "toc": "What we repair",
+        "heading": "What we",
+        "headingAccent": "repair",
+        "intro": "We fix the cause, not just the symptom. If water is what’s rotting the joists, we deal with the water too.",
+        "items": ["Sistering and replacing damaged joists and beams", "New block piers and support posts, set plumb and level", "Sill plate and rim joist repair", "Vapor barriers, encapsulation and sealed ductwork", "Drainage that keeps water out from under the house"]
+      },
+      "process": {
+        "toc": "How a repair runs",
+        "heading": "How a repair",
+        "headingAccent": "runs",
+        "body": "Kerney walks the crawl space with you, takes photos, and shows you exactly what he found, including what doesn’t need fixing. You get one written price before any work starts. The crew does the work, cleans up every day, and walks the finished job with you before we call it done."
+      },
+      "details": {
+        "heading": "Up close,",
+        "headingAccent": "under the floor.",
+        "figures": [
+          { "image": { "src": "/assets/photos/symptom-floors.jpg", "alt": "Crawl space with block piers and joists" }, "caption": "Block piers and joists before the repair." },
+          { "image": { "src": "/assets/photos/crawl-sealed-ducts.jpg", "alt": "Framed crawl space opening with foamed seams and sealed ducts" }, "caption": "Framed opening, foamed seams and sealed duct runs." },
+          { "image": { "src": "/assets/photos/crawl-support-post.jpg", "alt": "New wood support post under a floor system" }, "caption": "New support post, set plumb under the floor system." }
+        ]
+      },
+      "projectsHeading": "Crawl space work",
+      "projectsHeadingAccent": "we’ve done",
+      "faqHeadingAccent": "crawl space repair"
     },
     {
+      "slug": "water-moisture",
       "name": "Water & moisture",
-      "link": "#fix",
-      "items": ["Encapsulation", "Vapor barriers", "French drains", "Catch basins & downspouts", "Basement waterproofing"]
+      "kicker": "Keeping it dry",
+      "items": ["Encapsulation", "Vapor barriers", "French drains", "Catch basins & downspouts", "Basement waterproofing"],
+      "title": "Water &",
+      "titleAccent": "moisture control",
+      "intro": "Water under or around a house doesn’t stay put. It soaks into framing, feeds mold and works its way into the foundation. We find where it’s coming from, stop it, and keep the crawl space dry.",
+      "cover": { "src": "/assets/photos/symptom-crawlspace.jpg", "alt": "Encapsulated crawl space with a white vapor barrier" },
+      "coverCaption": "Crawl space sealed wall to wall.",
+      "seoDescription": "Crawl space encapsulation, vapor barriers, French drains and basement waterproofing in Winston-Salem and the Triad.",
+      "signs": {
+        "toc": "Signs of water",
+        "heading": "Signs water is",
+        "headingAccent": "getting in",
+        "intro": "You’ll usually smell it or feel it before you see it.",
+        "items": ["A musty smell inside the house", "Damp air, sweating ducts or wet insulation under the floor", "Standing water in the crawl space after a rain", "Water pooling against the foundation or by the downspouts", "Mold or white staining on joists and block"]
+      },
+      "work": {
+        "toc": "What we install",
+        "heading": "What we",
+        "headingAccent": "install",
+        "intro": "We start with where the water comes from, then seal up what’s left so it stays dry.",
+        "items": ["Crawl space encapsulation", "Vapor barriers sealed to the walls and piers", "French drains", "Catch basins and downspout extensions", "Basement waterproofing", "Sealed ductwork"]
+      },
+      "process": {
+        "toc": "How it runs",
+        "heading": "How the work",
+        "headingAccent": "runs",
+        "body": "Kerney looks under the house and around it, finds where the water is getting in, and shows you photos of what he found. You get one written price before any work starts. We fix the source first, then seal the crawl space, clean up every day, and walk the finished job with you."
+      },
+      "details": {
+        "heading": "Dry, sealed",
+        "headingAccent": "and clean.",
+        "figures": [
+          { "image": { "src": "/assets/photos/symptom-crawlspace.jpg", "alt": "Encapsulated crawl space" }, "caption": "Vapor barrier run wall to wall." },
+          { "image": { "src": "/assets/photos/crawl-sealed-ducts.jpg", "alt": "Sealed duct runs in a crawl space" }, "caption": "Foamed seams and sealed duct runs." },
+          { "image": { "src": "/assets/photos/symptom-drainage.jpg", "alt": "New drainage along the side of a brick house" }, "caption": "Drainage run along the house." }
+        ]
+      },
+      "projectsHeading": "Moisture work",
+      "projectsHeadingAccent": "we’ve done",
+      "faqHeadingAccent": "water & moisture"
     },
     {
+      "slug": "interiors",
       "name": "Interiors",
-      "link": "#plan",
-      "items": ["Basement finishing"]
+      "kicker": "Inside the house",
+      "items": ["Basement finishing"],
+      "title": "Bathrooms, tile &",
+      "titleAccent": "finished basements",
+      "intro": "A good-looking room starts with what’s behind the walls and under the floor. We handle the framing, moisture and subfloor first, then the finish work you’ll see every day.",
+      "cover": { "src": "/assets/photos/fig-tile.jpg", "alt": "Dark tile run floor to ceiling" },
+      "coverCaption": "Tile run straight and plumb to the ceiling.",
+      "seoDescription": "Bathroom remodels, tile and basement finishing in Winston-Salem and the Triad, with the framing and moisture work done right first.",
+      "signs": {
+        "toc": "Before you remodel",
+        "heading": "Worth fixing",
+        "headingAccent": "before you remodel",
+        "intro": "If any of these sound familiar, we’ll fix them first so the new finish lasts.",
+        "items": ["Soft or bouncy spots in a bathroom floor", "Loose tile or cracked grout that keeps coming back", "Old water damage around a tub, toilet or shower", "A damp or musty basement you’d like to use"]
+      },
+      "work": {
+        "toc": "What we build",
+        "heading": "What we",
+        "headingAccent": "build",
+        "intro": "[Kerney to confirm the interior work Accession takes on.]",
+        "items": ["Bathroom remodels", "Tile floors, showers and walls", "Basement finishing", "Subfloor and framing repair"]
+      },
+      "process": {
+        "toc": "How a project runs",
+        "heading": "How a project",
+        "headingAccent": "runs",
+        "body": "We walk the space with you, talk through what you want, and check what’s behind the walls and under the floor. You get one written price before any work starts. The crew builds it, keeps the house clean while we work, and walks the finished room with you."
+      },
+      "details": {
+        "heading": "In the",
+        "headingAccent": "details.",
+        "figures": [
+          { "image": { "src": "/assets/photos/fig-tile.jpg", "alt": "Dark tile run floor to ceiling" }, "caption": "Tile run straight and plumb to the ceiling." },
+          { "placeholder": "Photo needed: bathroom" },
+          { "placeholder": "Photo needed: finished basement" }
+        ]
+      },
+      "projectsHeading": "Interior work",
+      "projectsHeadingAccent": "we’ve done",
+      "faqHeadingAccent": "interiors"
     },
     {
+      "slug": "outdoor-living",
       "name": "Outdoor living",
-      "link": "#plan",
-      "items": ["Stone patios & walkways", "Retaining walls", "Fire pits", "Pergolas & arbors", "Decks & woodwork"]
+      "kicker": "Out back",
+      "items": ["Stone patios & walkways", "Retaining walls", "Fire pits", "Pergolas & arbors", "Decks & woodwork"],
+      "title": "Patios, stone &",
+      "titleAccent": "outdoor living",
+      "intro": "Stone patios, walkways, retaining walls, fire pits and porches, laid out around how you’ll use the space and built on a base that won’t shift.",
+      "cover": { "src": "/assets/photos/outdoor-stone-bench.jpg", "alt": "Stone bench on a flagstone pad in a wooded backyard" },
+      "coverCaption": "Stone bench set on a flagstone pad.",
+      "seoDescription": "Stone patios, walkways, retaining walls, fire pits, porches and decks in Winston-Salem and the Triad, built level and built to last.",
+      "signs": {
+        "toc": "What makes it last",
+        "heading": "What makes it",
+        "headingAccent": "last",
+        "intro": "Most of what keeps a patio or wall looking right is the part you never see.",
+        "items": ["A compacted base, so stone doesn’t settle or heave", "Drainage planned in, so water runs away from the house", "Stone cut tight and set level", "Walls built to hold the grade, not just to look good"]
+      },
+      "work": {
+        "toc": "What we build",
+        "heading": "What we",
+        "headingAccent": "build",
+        "intro": "One crew for the stone, the wood and everything underneath.",
+        "items": ["Stone patios and flagstone walkways", "Retaining walls", "Fire pits", "Pergolas and arbors", "Decks and woodwork", "Covered porches and tongue-and-groove ceilings"]
+      },
+      "process": {
+        "toc": "How a project runs",
+        "heading": "How a project",
+        "headingAccent": "runs",
+        "body": "We walk the yard with you, talk through how you want to use it, and lay out the plan. You get one written price before any work starts. The crew builds it, keeps the site tidy, and walks the finished job with you before we call it done."
+      },
+      "details": {
+        "heading": "Laid level,",
+        "headingAccent": "built to last.",
+        "figures": [
+          { "image": { "src": "/assets/photos/fig-flagstone.jpg", "alt": "Flagstone walk beside a stone column" }, "caption": "Flagstone walk, cut tight to the stone." },
+          { "image": { "src": "/assets/photos/fig-stone.jpg", "alt": "Hand-set stone retaining wall" }, "caption": "Hand-set stone, level and true." },
+          { "image": { "src": "/assets/photos/fig-porch-ceiling.jpg", "alt": "Tongue-and-groove porch ceiling with exposed beams" }, "caption": "Tongue-and-groove porch ceiling with exposed beams." }
+        ]
+      },
+      "projectsHeading": "Outdoor work",
+      "projectsHeadingAccent": "we’ve done",
+      "faqHeadingAccent": "outdoor living"
     }
+  ],
+  "projects": [
+    {
+      "slug": "cottage",
+      "title": "The cottage",
+      "category": "Structural · Outdoor living",
+      "services": ["structural", "outdoor-living"],
+      "summary": "Rotted framing and sheathing replaced, then new siding and new front steps.",
+      "location": "[Town], NC",
+      "disciplines": "Structural · Outdoor living",
+      "scope": "Rotted framing and sheathing replaced, new siding and new front steps",
+      "partners": "[Partners, if any]",
+      "duration": "[Weeks]",
+      "cover": { "src": "/assets/photos/cottage-after.jpg", "alt": "Cottage after: new white siding and new front steps" },
+      "before": { "src": "/assets/photos/cottage-before.jpg", "alt": "Cottage before: rotted framing and sheathing exposed" },
+      "after": { "src": "/assets/photos/cottage-after.jpg", "alt": "Cottage after: new white siding and new front steps" },
+      "story": [
+        { "style": "normal", "text": "This cottage started with rotted framing and sheathing, and ended with new siding and new front steps. The work nobody sees gets the same care as the work everybody does." },
+        { "style": "h3", "text": "What we found" },
+        { "style": "normal", "text": "[Kerney: what the house looked like when you opened it up, and what caused the rot.]" },
+        { "style": "h3", "text": "What we did" },
+        { "style": "normal", "text": "[The repair, in order: framing, sheathing, siding, steps.]" }
+      ],
+      "gallery": []
+    },
+    {
+      "slug": "new-piers-sistered-joists",
+      "title": "New piers and sistered joists",
+      "category": "Crawl space",
+      "services": ["structural"],
+      "summary": "A new block pier and beam under a sagging floor.",
+      "location": "Winston-Salem, NC",
+      "disciplines": "Structural",
+      "scope": "New block pier and beam, sistered joists under a sagging floor",
+      "partners": "",
+      "duration": "[Days]",
+      "cover": { "src": "/assets/photos/crawl-pier-beam.jpg", "alt": "New block pier and beam under a floor" },
+      "story": [
+        { "style": "normal", "text": "[Kerney: what the homeowner noticed, what you found under the house, and how you fixed it.]" }
+      ],
+      "gallery": [
+        { "image": { "src": "/assets/photos/crawl-support-post.jpg", "alt": "New support post under the floor system" }, "caption": "New support post, set plumb under the floor system." }
+      ]
+    },
+    {
+      "slug": "encapsulation-sealed-ducts",
+      "title": "Encapsulation and sealed ducts",
+      "category": "Moisture control",
+      "services": ["water-moisture"],
+      "summary": "A crawl space sealed wall to wall, with foamed seams and sealed duct runs.",
+      "location": "[Town], NC",
+      "disciplines": "Water & moisture",
+      "scope": "Crawl space encapsulation, foamed seams and sealed ductwork",
+      "partners": "",
+      "duration": "[Days]",
+      "cover": { "src": "/assets/photos/crawl-sealed-ducts.jpg", "alt": "Framed crawl space opening with foamed seams and sealed ducts" },
+      "story": [
+        { "style": "normal", "text": "[Kerney: where the moisture was coming from, and what you did to stop it and seal the crawl space.]" }
+      ],
+      "gallery": [
+        { "image": { "src": "/assets/photos/symptom-crawlspace.jpg", "alt": "Encapsulated crawl space" }, "caption": "Vapor barrier run wall to wall." }
+      ]
+    }
+  ],
+  "faqs": [
+    { "question": "Do you charge for estimates?", "answer": "No. Consultations are free, and you get a written price before any work starts. [Kerney to confirm]", "home": true },
+    { "question": "Can one crew really handle everything from structure to patios?", "answer": "[Answer needed]", "home": true },
+    { "question": "Do you work with engineers and inspectors?", "answer": "[Answer needed]", "home": true },
+    { "question": "How do I know if my crawl space needs work?", "answer": "[Answer needed]", "home": true },
+    { "question": "Are you licensed and insured?", "answer": "[Answer needed]", "home": true },
+    { "question": "What areas do you serve?", "answer": "Winston-Salem, Greensboro, Kernersville, King, Clemmons and the rest of the Triad. [Kerney to confirm]", "home": true },
+    { "question": "How much does a crawl space repair cost?", "answer": "[Typical range, and what drives the price up or down. The written estimate is free.]", "service": "structural" },
+    { "question": "How long does a typical repair take?", "answer": "[Answer needed]", "service": "structural" },
+    { "question": "Do I need to leave the house while you work?", "answer": "[Answer needed]", "service": "structural" },
+    { "question": "Will you fix what caused the damage, like water?", "answer": "Yes. We fix the cause, not just the symptom. If water is what’s rotting the joists, we deal with the water too.", "service": "structural" }
   ],
   "home": {
     "seoTitle": "Accession Builders | Foundation, Crawl Space & Outdoor Living in King, NC",
@@ -65,6 +297,7 @@
           "bodyShort": "Tired joists or failing supports. We sister joists, add piers and level the floor.",
           "linkLabel": "Crawl space & foundation repair",
           "linkLabelShort": "Foundation repair",
+          "service": "structural",
           "image": { "src": "/assets/photos/symptom-floors.jpg", "alt": "Crawl space with block piers and sagging joists" }
         },
         {
@@ -73,6 +306,7 @@
           "bodyShort": "We seal it up and fix where the water gets in, before it turns into mold and rot.",
           "linkLabel": "Moisture control & encapsulation",
           "linkLabelShort": "Moisture control",
+          "service": "water-moisture",
           "image": { "src": "/assets/photos/symptom-crawlspace.jpg", "alt": "Encapsulated crawl space with white vapor barrier" }
         },
         {
@@ -81,6 +315,7 @@
           "bodyShort": "French drains and catch basins move water away from the foundation for good.",
           "linkLabel": "Drainage & French drains",
           "linkLabelShort": "Drainage",
+          "service": "water-moisture",
           "image": { "src": "/assets/photos/symptom-drainage.jpg", "alt": "New drainage along the side of a brick house" }
         },
         {
@@ -88,6 +323,7 @@
           "body": "Some cracks are cosmetic and some aren't. We'll tell you which, and repair the ones that matter.",
           "bodyShort": "We'll tell you which cracks matter, and repair the ones that do.",
           "linkLabel": "Foundation repair",
+          "service": "structural",
           "placeholder": "Photo needed: foundation crack"
         }
       ],
@@ -109,16 +345,17 @@
       "heading": "Below the house,\nor out back.",
       "intro": "This cottage started with rotted framing and sheathing, and ended with new siding and new front steps. The work nobody sees gets the same care as the work everybody does.",
       "linkLabel": "Read the cottage story",
-      "linkLabelShort": "Read the case study"
+      "linkLabelShort": "Read the case study",
+      "project": "cottage"
     },
     "plan": {
       "eyebrow": "02  ·  Plan a project",
       "heading": "Porches, stone and rooms",
       "headingAccent": "built to be looked at.",
       "pillars": [
-        { "title": "Outdoor living", "body": "Stone patios, flagstone walks, retaining walls and fire pits, laid level and built to last." },
-        { "title": "Porches & decks", "body": "Covered porches, tongue-and-groove ceilings, decks and railings, built around how you use them." },
-        { "title": "Interiors", "body": "Bathrooms, tile and finished basements, with everything behind the walls done right first." }
+        { "title": "Outdoor living", "body": "Stone patios, flagstone walks, retaining walls and fire pits, laid level and built to last.", "service": "outdoor-living" },
+        { "title": "Porches & decks", "body": "Covered porches, tongue-and-groove ceilings, decks and railings, built around how you use them.", "service": "outdoor-living" },
+        { "title": "Interiors", "body": "Bathrooms, tile and finished basements, with everything behind the walls done right first.", "service": "interiors" }
       ],
       "figures": [
         { "image": { "src": "/assets/photos/fig-porch-ceiling.jpg", "alt": "Tongue-and-groove porch ceiling with exposed beams" }, "caption": "Tongue-and-groove porch ceiling with exposed beams." },
@@ -150,15 +387,53 @@
       "secondaryLabel": "Plan a project"
     }
   },
-  "project": {
-    "title": "The cottage",
-    "location": "[Town], NC",
-    "disciplines": "Structural · Outdoor living",
-    "scope": "Rotted framing and sheathing replaced, new siding and new front steps",
-    "partners": "[Partners, if any]",
-    "duration": "[Weeks]",
-    "before": { "src": "/assets/photos/cottage-before.jpg", "alt": "Cottage before: rotted framing and sheathing exposed" },
-    "after": { "src": "/assets/photos/cottage-after.jpg", "alt": "Cottage after: new white siding and new front steps" }
+  "about": {
+    "seoTitle": "About | Accession Builders",
+    "seoDescription": "A small residential contractor in King, NC. The same people who quote your job are the ones who build it.",
+    "eyebrow": "About Accession",
+    "heading": "One crew,",
+    "headingAccent": "from the footing up.",
+    "intro": "Accession Builders is a small residential contractor based in King, NC. We repair what’s under the house and build what goes on top of it. [A few lines from Kerney on how he started and why.]",
+    "placeholder": "Photo needed: Kerney or the crew on a job",
+    "howHeading": "How we",
+    "howHeadingAccent": "work",
+    "how": [
+      { "title": "We go under the house", "body": "Every job starts with an inspection. We look at the whole picture, take photos, and show you what we found, including what doesn’t need fixing." },
+      { "title": "One written price", "body": "A clear, fair price before any work starts, and we stick to it. No inflated estimates and no surprise change orders." },
+      { "title": "The same crew, start to finish", "body": "The people who quote your job are the ones who build it. Nothing gets handed off to someone you’ve never met." },
+      { "title": "Clean up every day", "body": "We keep the site tidy while we work, and walk the finished job with you before we call it done." }
+    ],
+    "crewHeading": "The",
+    "crewHeadingAccent": "crew",
+    "sisterHeading": "Sister company",
+    "sisterBody": "Red Clay Crawl Space Repair is our sister company. [Kerney: one or two lines on how the two companies relate.]"
+  },
+  "contact": {
+    "seoTitle": "Free inspection | Accession Builders",
+    "seoDescription": "Book a free inspection or tell us about a project. Call or text (336) 745-8600.",
+    "eyebrow": "Free inspection",
+    "heading": "Tell us what",
+    "headingAccent": "you’re seeing.",
+    "intro": "Fill this out and we’ll get back to you to set up a time. [Kerney: how fast you call back.] Or call or text us.",
+    "thanksHeading": "Thanks.",
+    "thanksHeadingAccent": "We’ll be in touch.",
+    "thanksBody": "We got your message and will reach out soon to set up a time. If it’s urgent, call or text us."
+  },
+  "faqPage": {
+    "seoTitle": "Questions | Accession Builders",
+    "seoDescription": "Answers about estimates, crawl space and foundation repair, moisture control, and how we work.",
+    "eyebrow": "Questions",
+    "heading": "Good questions,",
+    "headingAccent": "straight answers.",
+    "intro": "If you don’t see your question here, call or text us. We’re happy to talk it through."
+  },
+  "workPage": {
+    "seoTitle": "Our work | Accession Builders",
+    "seoDescription": "Crawl space, foundation, moisture, interior and outdoor projects by Accession Builders in Winston-Salem and the Triad.",
+    "eyebrow": "Our work",
+    "heading": "Below the house,",
+    "headingAccent": "or out back.",
+    "intro": "The work nobody sees gets the same care as the work everybody does. A few of the jobs we’ve done."
   },
   "crewMembers": [
     { "name": "Kerney Black", "role": "Owner" },
@@ -166,19 +441,13 @@
     { "name": "Frank", "role": "Crew" },
     { "name": "Ian", "role": "Crew" }
   ],
-  "review": {
-    "quote": "After getting an inflated estimate from a large foundation company, I chose Accession Builders. They were highly recommended by my engineer. The work was completed exactly when they said it would be, and for the price quoted.",
-    "author": "Betsy N.",
-    "service": "Crawl space & foundation",
-    "rating": 5,
-    "source": "Google"
-  },
-  "faqs": [
-    { "question": "Do you charge for estimates?", "answer": "No. Consultations are free, and you get a written price before any work starts. [Kerney to confirm]" },
-    { "question": "Can one crew really handle everything from structure to patios?", "answer": "[Answer needed]" },
-    { "question": "Do you work with engineers and inspectors?", "answer": "[Answer needed]" },
-    { "question": "How do I know if my crawl space needs work?", "answer": "[Answer needed]" },
-    { "question": "Are you licensed and insured?", "answer": "[Answer needed]" },
-    { "question": "What areas do you serve?", "answer": "[Answer needed]" }
+  "reviews": [
+    {
+      "quote": "After getting an inflated estimate from a large foundation company, I chose Accession Builders. They were highly recommended by my engineer. The work was completed exactly when they said it would be, and for the price quoted.",
+      "author": "Betsy N.",
+      "service": "Crawl space & foundation",
+      "rating": 5,
+      "source": "Google"
+    }
   ]
 }

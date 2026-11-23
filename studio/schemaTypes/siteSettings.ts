@@ -9,6 +9,7 @@ export const siteSettings = defineType({
     defineField({ name: 'phone', title: 'Phone', type: 'string', validation: (r) => r.required() }),
     defineField({ name: 'email', title: 'Email', type: 'string', validation: (r) => r.required().email() }),
     defineField({ name: 'serviceArea', title: 'Service area', type: 'string' }),
+    defineField({ name: 'serviceAreaLong', title: 'Service area, full sentence', type: 'text', rows: 2, description: 'Shown on service pages and Contact.' }),
     defineField({ name: 'licenseNumber', title: 'NC General Contractor license #', type: 'string' }),
     defineField({ name: 'sisterCompany', title: 'Sister company', type: 'string' }),
     defineField({ name: 'footerAbout', title: 'Footer description', type: 'text', rows: 3 }),

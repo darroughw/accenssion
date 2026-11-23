@@ -1,0 +1,25 @@
+---
+import ProjectCard from './ProjectCard.astro';
+import TextLink from './TextLink.astro';
+import type { Project } from '../lib/content';
+interface Props { eyebrow?: string; heading?: string; headingAccent?: string; projects: Project[]; showAllLink?: boolean }
+const { eyebrow = 'Projects', heading, headingAccent, projects, showAllLink = true } = Astro.props;
+---
+{projects.length > 0 && (
+  <section class="section projects" id="projects">
+    <div class="container">
+      {heading && (
+        <div class="split-head projects__head">
+          <div class="stack-20">
+            <p class="eyebrow">{eyebrow}</p>
+            <h2 class="h-display h-56">{heading}{headingAccent && <>{' '}<em>{headingAccent}</em></>}</h2>
+          </div>
+          {showAllLink && <TextLink href="/work/" label="See all projects" />}
+        </div>
+      )}
+      <div class="cards">
+        {projects.map((p) => <ProjectCard project={p} />)}
+      </div>
+    </div>
+  </section>
+)}

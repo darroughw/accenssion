@@ -1,0 +1,15 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Button from '../components/Button.astro';
+---
+<Base title="Page not found | Accession Builders" noindex>
+  <PageHeader trail={[{ label: 'Not found' }]} eyebrow="404" heading="Nothing" headingAccent="under this floor."
+    intro="That page doesn’t exist, or it moved. Try one of these instead.">
+    <div class="actions">
+      <Button variant="brass" href="/" label="Home" />
+      <Button variant="line-dark" href="/services/" label="Services" />
+      <Button variant="line-dark" href="/contact/" label="Free inspection" />
+    </div>
+  </PageHeader>
+</Base>

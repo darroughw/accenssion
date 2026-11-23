@@ -1,0 +1,66 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import Figures from '../../components/Figures.astro';
+import ProjectGrid from '../../components/ProjectGrid.astro';
+import Cta from '../../components/Cta.astro';
+import { getSiteContent, imgUrl, serviceHref, type Project } from '../../lib/content';
+
+export async function getStaticPaths() {
+  const { projects } = await getSiteContent();
+  return projects.map((project) => ({ params: { slug: project.slug }, props: { project } }));
+}
+interface Props { project: Project }
+const { project: p } = Astro.props;
+const content = await getSiteContent();
+const related = content.projects.filter((o) => o.slug !== p.slug && o.services.some((s) => p.services.includes(s))).slice(0, 3);
+const more = related.length ? related : content.projects.filter((o) => o.slug !== p.slug).slice(0, 3);
+const serviceLinks = content.services.filter((s) => p.services.includes(s.slug));
+const spec = [
+  ['Location', p.location], ['Disciplines', p.disciplines], ['Scope', p.scope], ['Partners', p.partners], ['Duration', p.duration],
+].filter(([, v]) => v);
+const pair = p.before?.src && p.after?.src;
+---
+<Base title={`${p.title} | Our work | Accession Builders`} description={p.summary} image={(p.after ?? p.cover)?.src}>
+  <PageHeader trail={[{ label: 'Our work', href: '/work/' }, { label: p.title }]} eyebrow={p.category} heading={p.title} intro={p.summary} />
+
+  <section class="section project">
+    <div class="container">
+      {pair ? (
+        <div class="before-after">
+          {[['Before', p.before], ['After', p.after]].map(([label, img]: any) => (
+            <figure>
+              <div class="before-after__photo"><img src={imgUrl(img.src, 1400)} alt={img.alt ?? ''} /></div>
+              <figcaption class="eyebrow">{label}</figcaption>
+            </figure>
+          ))}
+        </div>
+      ) : p.cover?.src && (
+        <div class="project__cover"><img src={imgUrl(p.cover.src, 2000)} alt={p.cover.alt ?? ''} /></div>
+      )}
+
+      {spec.length > 0 && (
+        <dl class="spec spec--project">
+          {spec.map(([label, value]) => <div class="spec__item"><dt>{label}</dt><dd>{value}</dd></div>)}
+        </dl>
+      )}
+
+      <div class="project__body">
+        <div class="story">
+          {p.story.map((b) => b.style.startsWith('h') ? <h2 class="story__heading">{b.text}</h2> : <p>{b.text}</p>)}
+        </div>
+        {serviceLinks.length > 0 && (
+          <aside class="project__aside">
+            <p class="eyebrow">Services on this job</p>
+            <ul>{serviceLinks.map((s) => <li><a href={serviceHref(s.slug)}>{s.name} →</a></li>)}</ul>
+          </aside>
+        )}
+      </div>
+
+      {p.gallery.length > 0 && <Figures figures={p.gallery} class="figures--three" />}
+    </div>
+  </section>
+
+  <ProjectGrid eyebrow="More work" heading="More" headingAccent="projects" projects={more} />
+  <Cta cta={content.home.cta} settings={content.settings} />
+</Base>

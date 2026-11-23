@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import { getSiteContent } from '../lib/content';
+const { settings } = await getSiteContent();
+---
+<Base title="Privacy policy | Accession Builders" description="How Accession Builders handles the information you send us.">
+  <PageHeader trail={[{ label: 'Privacy policy' }]} eyebrow="Privacy" heading="Privacy" headingAccent="policy" intro="[Draft: have this reviewed before launch.]" />
+  <section class="section">
+    <div class="container">
+      <div class="story story--narrow">
+        <h2 class="story__heading">What we collect</h2>
+        <p>When you fill out our contact form, we receive the details you enter: your name, phone number, email, town and message. [Add analytics or cookies here if the site uses them.]</p>
+        <h2 class="story__heading">How we use it</h2>
+        <p>We use it only to respond to your request and to schedule and carry out work you ask us to do. We don’t sell it or share it with anyone for marketing.</p>
+        <h2 class="story__heading">Questions</h2>
+        <p>Email <a href={`mailto:${settings.email}`}>{settings.email}</a> or call {settings.phone} and we’ll tell you what we have and delete it if you ask.</p>
+      </div>
+    </div>
+  </section>
+</Base>

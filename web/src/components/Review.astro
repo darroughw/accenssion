@@ -1,6 +1,6 @@
 ---
-import type { SiteContent } from '../lib/content';
-interface Props { review: SiteContent['review'] }
+import type { Review } from '../lib/content';
+interface Props { review: Review }
 const { review } = Astro.props;
 const rating = Math.max(0, Math.min(5, Math.round(review.rating ?? 5)));
 ---

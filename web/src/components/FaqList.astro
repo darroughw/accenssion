@@ -1,0 +1,20 @@
+---
+import type { Faq } from '../lib/content';
+interface Props { items: Faq[]; id: string; openFirst?: boolean }
+const { items, id, openFirst = true } = Astro.props;
+---
+<div class="faq__list">
+  {items.map((item, i) => {
+    const open = openFirst && i === 0;
+    const key = `${id}-${i + 1}`;
+    return (
+      <div class:list={['faq-row', { 'is-open': open }]}>
+        <h3><button class="faq-row__q" type="button" aria-expanded={open ? 'true' : 'false'} aria-controls={`a-${key}`} id={`q-${key}`}>
+          <span>{item.question}</span>
+          <span class="faq-row__icon"><img src="/assets/icon-plus.svg" width="16" height="16" alt="" /></span>
+        </button></h3>
+        <div class="faq-row__a" id={`a-${key}`} role="region" aria-labelledby={`q-${key}`} hidden={!open}><p>{item.answer}</p></div>
+      </div>
+    );
+  })}
+</div>

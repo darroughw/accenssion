@@ -7,12 +7,21 @@ export const structure: StructureResolver = (S) =>
   S.list()
     .title('Content')
     .items([
-      singleton(S, 'homepage', 'Homepage'),
-      singleton(S, 'siteSettings', 'Site settings'),
-      S.divider(),
-      S.documentTypeListItem('project').title('Projects'),
-      S.documentTypeListItem('review').title('Reviews'),
-      S.documentTypeListItem('faq').title('FAQs'),
-      S.documentTypeListItem('crewMember').title('Crew'),
+      S.listItem().title('Pages').child(
+        S.list().title('Pages').items([
+          singleton(S, 'homepage', 'Homepage'),
+          singleton(S, 'aboutPage', 'About'),
+          singleton(S, 'workPage', 'Our work'),
+          singleton(S, 'faqPage', 'Questions'),
+          singleton(S, 'contactPage', 'Contact'),
+        ])
+      ),
       S.documentTypeListItem('service').title('Services'),
+      S.documentTypeListItem('project').title('Projects'),
+      S.divider(),
+      S.documentTypeListItem('faq').title('FAQs'),
+      S.documentTypeListItem('review').title('Reviews'),
+      S.documentTypeListItem('crewMember').title('Crew'),
+      S.divider(),
+      singleton(S, 'siteSettings', 'Site settings'),
     ]);

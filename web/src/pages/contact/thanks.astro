@@ -1,0 +1,15 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import Button from '../../components/Button.astro';
+import { getSiteContent, telHref } from '../../lib/content';
+const { contact: c, settings } = await getSiteContent();
+---
+<Base title="Thanks | Accession Builders" noindex>
+  <PageHeader trail={[{ label: 'Contact', href: '/contact/' }, { label: 'Thanks' }]} eyebrow="Request sent" heading={c.thanksHeading} headingAccent={c.thanksHeadingAccent} intro={c.thanksBody}>
+    <div class="actions">
+      <Button variant="brass" href="/work/" label="See our work" />
+      <Button variant="line-dark" href={telHref(settings.phone)} label={`Call ${settings.phone}`} />
+    </div>
+  </PageHeader>
+</Base>

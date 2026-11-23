@@ -1,0 +1,16 @@
+---
+import { imgUrl, projectHref, type Project } from '../lib/content';
+interface Props { project: Project }
+const { project: p } = Astro.props;
+const town = p.location && !p.location.includes('[') ? p.location.replace(/,\s*NC$/, '') : '';
+const meta = [p.category, town].filter(Boolean).join('  ·  ');
+---
+<a class="card" href={projectHref(p.slug)}>
+  <div class="card__photo">
+    {p.cover?.src
+      ? <img src={imgUrl(p.cover.src, 900)} alt={p.cover.alt ?? ''} loading="lazy" />
+      : <span>Project photo needed</span>}
+  </div>
+  {meta && <p class="eyebrow card__meta">{meta}</p>}
+  <h3 class="card__title">{p.title}</h3>
+</a>

@@ -1,0 +1,23 @@
+---
+// Dark intro band used at the top of every inner page.
+import Breadcrumbs from './Breadcrumbs.astro';
+interface Props {
+  trail: { label: string; href?: string }[];
+  eyebrow?: string;
+  heading: string;
+  headingAccent?: string;
+  intro?: string;
+}
+const { trail, eyebrow, heading, headingAccent, intro } = Astro.props;
+---
+<section class="page-header">
+  <div class="container">
+    <Breadcrumbs trail={trail} />
+    <div class="page-header__body">
+      {eyebrow && <p class="eyebrow eyebrow--brass">{eyebrow}</p>}
+      <h1 class="h-display page-header__title">{heading}{headingAccent && <>{' '}<em>{headingAccent}</em></>}</h1>
+      {intro && <p class="page-header__intro">{intro}</p>}
+      <slot />
+    </div>
+  </div>
+</section>

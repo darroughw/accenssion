@@ -1,0 +1,39 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import Cta from '../../components/Cta.astro';
+import { getSiteContent } from '../../lib/content';
+const content = await getSiteContent();
+const { workPage: page, projects, services } = content;
+// Only offer filters for services that have at least one project.
+const filters = services.filter((s) => projects.some((p) => p.services.includes(s.slug)));
+---
+<Base title={page.seoTitle} description={page.seoDescription}>
+  <PageHeader trail={[{ label: 'Our work' }]} eyebrow={page.eyebrow} heading={page.heading} headingAccent={page.headingAccent} intro={page.intro} />
+  <section class="section projects">
+    <div class="container">
+      {filters.length > 1 && (
+        <div class="filters" role="group" aria-label="Filter projects">
+          <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">All</button>
+          {filters.map((s) => <button type="button" class="filter" data-filter={s.slug} aria-pressed="false">{s.name}</button>)}
+        </div>
+      )}
+      <div class="cards">
+        {projects.map((p) => (
+          <div class="cards__item" data-services={p.services.join(' ')}><ProjectCard project={p} /></div>
+        ))}
+      </div>
+    </div>
+  </section>
+  <Cta cta={content.home.cta} settings={content.settings} />
+</Base>
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.filter');
+  const items = document.querySelectorAll<HTMLElement>('.cards__item');
+  buttons.forEach((b) => b.addEventListener('click', () => {
+    const f = b.dataset.filter!;
+    buttons.forEach((o) => { o.classList.toggle('is-active', o === b); o.setAttribute('aria-pressed', String(o === b)); });
+    items.forEach((it) => { it.hidden = f !== 'all' && !(it.dataset.services ?? '').split(' ').includes(f); });
+  }));
+</script>

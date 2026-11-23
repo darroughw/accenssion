@@ -1,0 +1,30 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import Cta from '../../components/Cta.astro';
+import { getSiteContent, imgUrl, pad, serviceHref } from '../../lib/content';
+const content = await getSiteContent();
+---
+<Base title="Services | Accession Builders" description="Structural repair, water and moisture control, interiors and outdoor living in Winston-Salem and the Triad.">
+  <PageHeader trail={[{ label: 'Services' }]} eyebrow="Services" heading="From footing" headingAccent="to finish."
+    intro="Four kinds of work, one crew and one standard. Start with what’s under the house, then build what goes on top of it." />
+  <section class="section">
+    <div class="container service-list">
+      {content.services.map((s, i) => (
+        <a class="service-row" href={serviceHref(s.slug)}>
+          <div class="service-row__photo arch">
+            {s.cover?.src ? <img src={imgUrl(s.cover.src, 700)} alt={s.cover.alt ?? ''} loading="lazy" /> : null}
+          </div>
+          <div class="service-row__copy">
+            <p class="eyebrow">{pad(i + 1)}{s.kicker && <>&nbsp;&nbsp;·&nbsp;&nbsp;{s.kicker}</>}</p>
+            <h2 class="h-display h-56">{s.name}</h2>
+            <p class="body-17">{s.intro}</p>
+            <ul class="service-row__items">{s.items.map((it) => <li>{it}</li>)}</ul>
+            <span class="text-link">Explore {s.name.toLowerCase()} <img src="/assets/icon-arrow-bronze.svg" width="16" height="16" alt="" /></span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+  <Cta cta={content.home.cta} settings={content.settings} />
+</Base>

@@ -57,3 +57,17 @@
     });
   });
 })();
+
+// Service pages: highlight the "On this page" link for the section in view.
+(function () {
+  const links = document.querySelectorAll('[data-toc]');
+  if (!links.length || !('IntersectionObserver' in window)) return;
+  const byId = new Map([...links].map((a) => [a.dataset.toc, a]));
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      links.forEach((a) => a.classList.toggle('is-active', a === byId.get(e.target.id)));
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  byId.forEach((_, id) => { const el = document.getElementById(id); if (el) observer.observe(el); });
+})();

@@ -1,5 +1,6 @@
 ---
-import { imgUrl, type SiteContent } from '../lib/content';
+import Figures from './Figures.astro';
+import type { SiteContent } from '../lib/content';
 interface Props { plan: SiteContent['home']['plan'] }
 const { plan } = Astro.props;
 const roman = ['I.', 'II.', 'III.', 'IV.', 'V.', 'VI.'];
@@ -20,13 +21,6 @@ const roman = ['I.', 'II.', 'III.', 'IV.', 'V.', 'VI.'];
         </div>
       ))}
     </div>
-    <div class="figures">
-      {plan.figures.map((f, i) => (
-        <figure class="figure">
-          {f.image?.src && <div class="figure__photo arch"><img src={imgUrl(f.image.src, 640)} alt={f.image.alt ?? ''} loading="lazy" /></div>}
-          <figcaption>Fig. {i + 2} — {f.caption}</figcaption>
-        </figure>
-      ))}
-    </div>
+    <Figures figures={plan.figures} />
   </div>
 </section>

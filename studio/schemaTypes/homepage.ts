@@ -13,7 +13,7 @@ export const homepage = defineType({
     { name: 'fix', title: 'Fix a problem' },
     { name: 'work', title: 'Featured project' },
     { name: 'plan', title: 'Plan a project' },
-    { name: 'more', title: 'Crew, review, FAQ, CTA' },
+    { name: 'more', title: 'Crew, FAQ, CTA' },
     { name: 'seo', title: 'SEO' },
   ],
   fields: [
@@ -51,6 +51,7 @@ export const homepage = defineType({
           ...withShort('body', 'Description'),
           ...withShort('linkLabel', 'Link label', 1),
           { ...image(), validation: undefined },
+          defineField({ name: 'service', title: 'Links to service', type: 'reference', to: [{ type: 'service' }] }),
           defineField({ name: 'placeholder', title: 'Placeholder text (shown if no photo)', type: 'string' }),
         ], preview: { select: { title: 'title', media: 'image' } } })],
       }),
@@ -82,6 +83,7 @@ export const homepage = defineType({
         of: [defineArrayMember({ type: 'object', fields: [
           defineField({ name: 'title', title: 'Title', type: 'string' }),
           defineField({ name: 'body', title: 'Description', type: 'text', rows: 3 }),
+          defineField({ name: 'service', title: 'Service', type: 'reference', to: [{ type: 'service' }] }),
         ] })],
       }),
       defineField({
@@ -99,12 +101,9 @@ export const homepage = defineType({
       defineField({ name: 'buttonLabel', title: 'Button', type: 'string' }),
     ]), group: 'more' },
 
-    defineField({ name: 'review', title: 'Featured review', type: 'reference', to: [{ type: 'review' }], group: 'more', validation: (r) => r.required() }),
-
     { ...section('faq', 'Questions', [
       eyebrow(), heading(), headingAccent(),
       defineField({ name: 'linkLabel', title: 'Link label', type: 'string' }),
-      defineField({ name: 'items', title: 'Questions on the homepage', type: 'array', of: [{ type: 'reference', to: [{ type: 'faq' }] }] }),
     ]), group: 'more' },
 
     { ...section('cta', 'Closing call to action', [

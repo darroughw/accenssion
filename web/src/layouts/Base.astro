@@ -3,9 +3,23 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Menu from '../components/Menu.astro';
 import Footer from '../components/Footer.astro';
-import type { SiteContent } from '../lib/content';
-interface Props { title: string; description: string; content: SiteContent }
-const { title, description, content } = Astro.props;
+import { getSiteContent, telHref } from '../lib/content';
+interface Props { title: string; description?: string; image?: string; noindex?: boolean }
+const { title, description, image, noindex = false } = Astro.props;
+const content = await getSiteContent();
+const { settings } = content;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL(image ?? '/assets/photos/hero-porch-ceiling.jpg', Astro.site);
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'HomeAndConstructionBusiness',
+  name: 'Accession Builders',
+  url: Astro.site?.toString(),
+  telephone: telHref(settings.phone).replace('tel:', ''),
+  email: settings.email,
+  address: { '@type': 'PostalAddress', addressLocality: 'King', addressRegion: 'NC', addressCountry: 'US' },
+  areaServed: settings.serviceArea,
+};
 ---
 <!doctype html>
 <html lang="en">
@@ -13,18 +27,27 @@ const { title, description, content } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
-    <meta name="description" content={description} />
+    {description && <meta name="description" content={description} />}
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Accession Builders" />
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Manrope:wght@400;500&family=Saira:wght@400;500&display=swap" rel="stylesheet" />
+    <script type="application/ld+json" set:html={JSON.stringify(ld)} />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <Header settings={content.settings} />
-    <Menu settings={content.settings} services={content.services} />
+    <Header settings={settings} />
+    <Menu settings={settings} services={content.services} />
     <main id="main"><slot /></main>
-    <Footer settings={content.settings} services={content.services} />
+    <Footer settings={settings} services={content.services} />
     <script>import '../lib/site.js';</script>
   </body>
 </html>

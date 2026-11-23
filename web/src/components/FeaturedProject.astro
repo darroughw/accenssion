@@ -1,8 +1,8 @@
 ---
 import Lines from './Lines.astro';
 import TextLink from './TextLink.astro';
-import { imgUrl, type SiteContent } from '../lib/content';
-interface Props { featured: SiteContent['home']['featured']; project: SiteContent['project'] }
+import { imgUrl, projectHref, type SiteContent, type Project } from '../lib/content';
+interface Props { featured: SiteContent['home']['featured']; project: Project }
 const { featured, project } = Astro.props;
 const spec = [
   ['location', 'Location', project.location],
@@ -20,7 +20,7 @@ const spec = [
         <h2 class="h-display h-76"><Lines text={featured.heading} /></h2>
         <p class="body-17 featured__intro">{featured.intro}</p>
       </div>
-      <TextLink href="#work" label={featured.linkLabel} labelShort={featured.linkLabelShort} />
+      <TextLink href={projectHref(project.slug)} label={featured.linkLabel} labelShort={featured.linkLabelShort} />
     </div>
     <div class="before-after">
       {[['Before', project.before], ['After', project.after]].map(([label, img]: any) => img?.src && (

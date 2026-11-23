@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import FaqList from '../components/FaqList.astro';
+import TextLink from '../components/TextLink.astro';
+import Cta from '../components/Cta.astro';
+import { getSiteContent, serviceHref } from '../lib/content';
+const content = await getSiteContent();
+const { faqPage: page, faqs, services } = content;
+const groups = [
+  { id: 'general', title: 'General', href: undefined as string | undefined, items: faqs.filter((f) => !f.service) },
+  ...services.map((s) => ({ id: s.slug, title: s.name, href: serviceHref(s.slug), items: faqs.filter((f) => f.service === s.slug) })),
+].filter((g) => g.items.length);
+---
+<Base title={page.seoTitle} description={page.seoDescription}>
+  <PageHeader trail={[{ label: 'Questions' }]} eyebrow={page.eyebrow} heading={page.heading} headingAccent={page.headingAccent} intro={page.intro} />
+  {groups.map((g, i) => (
+    <section class:list={['section faq faq-group', { 'faq--paper': i % 2 === 1 }]} id={g.id}>
+      <div class="container faq__inner">
+        <div class="faq__intro">
+          <h2 class="h-display h-44">{g.title}</h2>
+          {g.href && <TextLink href={g.href} label={`About ${g.title.toLowerCase()}`} />}
+        </div>
+        <FaqList items={g.items} id={g.id} openFirst={i === 0} />
+      </div>
+    </section>
+  ))}
+  <Cta cta={content.home.cta} settings={content.settings} />
+</Base>

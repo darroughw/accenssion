@@ -1,7 +1,7 @@
 ---
 import Button from './Button.astro';
 import Variant from './Variant.astro';
-import { imgUrl, type SiteContent } from '../lib/content';
+import { imgUrl, serviceHref, type SiteContent } from '../lib/content';
 interface Props { fix: SiteContent['home']['fix'] }
 const { fix } = Astro.props;
 const { inspection } = fix;
@@ -31,7 +31,7 @@ const pad = (n: number) => String(n).padStart(2, '0');
           <div class="symptom__text">
             <h3 class="symptom__title">{p.title}</h3>
             <p class="symptom__body"><Variant full={p.body} short={p.bodyShort} /></p>
-            <a class="symptom__link" href="#contact"><Variant full={p.linkLabel} short={p.linkLabelShort} />&nbsp;&nbsp;→</a>
+            <a class="symptom__link" href={p.service ? serviceHref(p.service) : "/contact/"}><Variant full={p.linkLabel} short={p.linkLabelShort} />&nbsp;&nbsp;→</a>
           </div>
         </li>
       ))}
@@ -42,7 +42,7 @@ const pad = (n: number) => String(n).padStart(2, '0');
         <p class="eyebrow">{inspection.eyebrow}</p>
         <h3 class="h-display h-44">{inspection.heading}<br /><em class="bronze">{inspection.headingAccent}</em></h3>
         <p class="inspection__body">{inspection.body}</p>
-        <Button variant="solid" href="#contact" label={inspection.buttonLabel} />
+        <Button variant="solid" href="/contact/" label={inspection.buttonLabel} />
       </div>
       <ol class="steps">
         {inspection.steps.map((s, i) => (

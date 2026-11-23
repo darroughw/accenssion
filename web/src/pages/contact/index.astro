@@ -1,0 +1,86 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import { getSiteContent, pad, telHref } from '../../lib/content';
+const content = await getSiteContent();
+const { contact: c, settings } = content;
+const steps = content.home.fix.inspection.steps;
+
+// Form delivery: set PUBLIC_FORM_ENDPOINT (e.g. a Formspree URL) to post there.
+// Without it, the form uses Netlify Forms, which works when the site is hosted on Netlify.
+const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT as string | undefined;
+const formAttrs = endpoint
+  ? { action: endpoint }
+  : { action: '/contact/thanks/', 'data-netlify': 'true', 'netlify-honeypot': 'company' };
+---
+<Base title={c.seoTitle} description={c.seoDescription}>
+  <PageHeader trail={[{ label: 'Contact' }]} eyebrow={c.eyebrow} heading={c.heading} headingAccent={c.headingAccent} intro={c.intro} />
+
+  <section class="section contact">
+    <div class="container contact__inner">
+      <form class="form" name="inspection" method="POST" {...formAttrs}>
+        <input type="hidden" name="form-name" value="inspection" />
+        <input type="hidden" name="_next" value={new URL('/contact/thanks/', Astro.site).toString()} />
+        <p class="form__hp" aria-hidden="true"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off" /></label></p>
+
+        <fieldset class="form__choice">
+          <legend class="form__label">What can we help with?</legend>
+          <label><input type="radio" name="type" value="Fix a problem" checked /> <span>Fix a problem</span></label>
+          <label><input type="radio" name="type" value="Plan a project" /> <span>Plan a project</span></label>
+          <label><input type="radio" name="type" value="Not sure yet" /> <span>Not sure yet</span></label>
+        </fieldset>
+
+        <div class="form__row">
+          <label class="form__field"><span class="form__label">Name</span><input name="name" autocomplete="name" required /></label>
+          <label class="form__field"><span class="form__label">Phone</span><input name="phone" type="tel" autocomplete="tel" required /></label>
+        </div>
+        <div class="form__row">
+          <label class="form__field"><span class="form__label">Email <em>(optional)</em></span><input name="email" type="email" autocomplete="email" /></label>
+          <label class="form__field"><span class="form__label">Town</span><input name="town" autocomplete="address-level2" placeholder="e.g. King" /></label>
+        </div>
+        <label class="form__field">
+          <span class="form__label">What are you seeing, or what do you want built?</span>
+          <textarea name="message" rows="6" required></textarea>
+        </label>
+        <fieldset class="form__choice form__choice--inline">
+          <legend class="form__label">Best way to reach you</legend>
+          <label><input type="radio" name="contact_by" value="Call" checked /> <span>Call</span></label>
+          <label><input type="radio" name="contact_by" value="Text" /> <span>Text</span></label>
+          <label><input type="radio" name="contact_by" value="Email" /> <span>Email</span></label>
+        </fieldset>
+        <button class="btn btn--solid form__submit" type="submit">Send request <img src="/assets/icon-arrow-white.svg" width="16" height="16" alt="" /></button>
+      </form>
+
+      <aside class="contact__aside">
+        <div class="contact__block">
+          <p class="eyebrow">Call or text</p>
+          <a class="contact__big" href={telHref(settings.phone)}>{settings.phone}</a>
+        </div>
+        <div class="contact__block">
+          <p class="eyebrow">Email</p>
+          <a class="contact__link" href={`mailto:${settings.email}`}>{settings.email}</a>
+        </div>
+        <div class="contact__block">
+          <p class="eyebrow">Service area</p>
+          <p class="body-17">{settings.serviceAreaLong}</p>
+        </div>
+        <div class="contact__block">
+          <p class="eyebrow">What happens next</p>
+          <ol class="steps">
+            {steps.map((s, i) => (
+              <li class="step"><span class="step__num">{pad(i + 1)}</span><div><h3 class="step__title">{s.title}</h3><p class="step__body">{s.body}</p></div></li>
+            ))}
+          </ol>
+        </div>
+      </aside>
+    </div>
+  </section>
+</Base>
+<script>
+  // /contact/?type=project preselects "Plan a project".
+  const type = new URLSearchParams(location.search).get('type');
+  if (type === 'project') {
+    const input = document.querySelector<HTMLInputElement>('input[name="type"][value="Plan a project"]');
+    if (input) input.checked = true;
+  }
+</script>

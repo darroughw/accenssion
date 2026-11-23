@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Review from '../components/Review.astro';
+import Cta from '../components/Cta.astro';
+import { getSiteContent, imgUrl, pad } from '../lib/content';
+const content = await getSiteContent();
+const { about: a, crewMembers, settings } = content;
+const photo = (a as any).photo as { src: string; alt?: string } | undefined;
+---
+<Base title={a.seoTitle} description={a.seoDescription}>
+  <section class="section about-intro">
+    <div class="container">
+      <Breadcrumbs trail={[{ label: 'About' }]} />
+      <div class="crew__inner about-intro__inner">
+        {photo?.src
+          ? <div class="crew__photo"><img src={imgUrl(photo.src, 1100)} alt={photo.alt ?? ''} /></div>
+          : <div class="crew__photo"><span>{a.placeholder}</span></div>}
+        <div class="crew__copy">
+          <div class="stack-20">
+            <p class="eyebrow">{a.eyebrow}</p>
+            <h1 class="h-display h-76">{a.heading}<br /><em>{a.headingAccent}</em></h1>
+          </div>
+          <p class="crew__body">{a.intro}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section standard how" id="how-we-work">
+    <div class="container">
+      <h2 class="h-display h-76">{a.howHeading} <em>{a.howHeadingAccent}</em></h2>
+      <ol class="how__steps">
+        {a.how.map((step, i) => (
+          <li class="pillar">
+            <span class="pillar__num">{pad(i + 1)}</span>
+            <span class="pillar__rule" aria-hidden="true"></span>
+            <h3 class="pillar__title">{step.title}</h3>
+            <p class="pillar__body">{step.body}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container about-crew">
+      <h2 class="h-display h-60">{a.crewHeading} <em>{a.crewHeadingAccent}</em></h2>
+      <ul class="names">
+        {crewMembers.map((m) => <li><span class="names__name">{m.name}</span><span class="names__role">{m.role}</span></li>)}
+      </ul>
+      {settings.sisterCompany && (
+        <div class="about-sister">
+          <p class="eyebrow">{a.sisterHeading}</p>
+          <p class="body-17">{a.sisterBody}</p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  {content.reviews[0] && <Review review={content.reviews[0]} />}
+  <Cta cta={content.home.cta} settings={settings} />
+</Base>
