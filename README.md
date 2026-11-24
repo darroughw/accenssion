@@ -82,7 +82,7 @@ Host `web/` on Vercel or Netlify:
 | `/faq/` | All questions, grouped by service | Site design system |
 | `/contact/` | Free inspection form | Site design system |
 | `/contact/thanks/` | Form confirmation | Site design system |
-| `/privacy/` | Privacy policy (draft) | Site design system |
+| `/privacy/` | Privacy policy | Site design system |
 | `/404` | Not found | Site design system |
 
 Only the homepage and the crawl space service page were designed in Figma. The other pages reuse the homepage's components, type and colors. Service and project pages are generated from the CMS, so a new service or project gets a page automatically.
@@ -140,7 +140,7 @@ Placeholders appear in [brackets] on the site until they're replaced. The main o
 - **Projects:** stories for all three; town, partners and duration for the cottage; at least one Interiors and one Outdoor living project
 - **Interiors:** confirm the list of interior work Accession takes on
 - **FAQs:** answers for most questions, and confirmation of the ones drafted
-- **Legal:** NC General Contractor license number; have the privacy policy reviewed
+- **Legal:** NC General Contractor license number; have the privacy policy reviewed (published; update it if analytics or new services are added)
 - **Review copy:** the Water & moisture, Interiors and Outdoor living service pages were drafted to match the crawl space page. Kerney should read them for accuracy
 
 ## Project structure

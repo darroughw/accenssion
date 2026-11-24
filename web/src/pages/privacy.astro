@@ -3,18 +3,36 @@ import Base from '../layouts/Base.astro';
 import PageHeader from '../components/PageHeader.astro';
 import { getSiteContent } from '../lib/content';
 const { settings } = await getSiteContent();
+const updated = 'November 24, 2026';
 ---
 <Base title="Privacy policy | Accession Builders" description="How Accession Builders handles the information you send us.">
-  <PageHeader trail={[{ label: 'Privacy policy' }]} eyebrow="Privacy" heading="Privacy" headingAccent="policy" intro="[Draft: have this reviewed before launch.]" />
+  <PageHeader trail={[{ label: 'Privacy policy' }]} eyebrow="Privacy" heading="Privacy" headingAccent="policy" intro={`Last updated ${updated}`} />
   <section class="section">
     <div class="container">
       <div class="story story--narrow">
         <h2 class="story__heading">What we collect</h2>
-        <p>When you fill out our contact form, we receive the details you enter: your name, phone number, email, town and message. [Add analytics or cookies here if the site uses them.]</p>
+        <p>When you fill out our contact form, we receive what you enter: your name, phone number, email (if you give one), town, the kind of work you need, your message, and how you'd like us to reach you.</p>
+        <p>This site doesn't use analytics, advertising trackers or cookies.</p>
+
         <h2 class="story__heading">How we use it</h2>
-        <p>We use it only to respond to your request and to schedule and carry out work you ask us to do. We don’t sell it or share it with anyone for marketing.</p>
-        <h2 class="story__heading">Questions</h2>
-        <p>Email <a href={`mailto:${settings.email}`}>{settings.email}</a> or call {settings.phone} and we’ll tell you what we have and delete it if you ask.</p>
+        <p>We use it only to answer your request and to schedule and carry out work you ask us to do. If you give us your email, we send you one confirmation that we got your request. We don't sell your information or share it with anyone for marketing.</p>
+
+        <h2 class="story__heading">Who else handles it</h2>
+        <p>A few service providers handle it on our behalf, only to run this site and deliver your request:</p>
+        <ul>
+          <li><strong>Netlify</strong> hosts this site and stores contact form submissions.</li>
+          <li><strong>Resend</strong> delivers the emails the contact form sends.</li>
+          <li><strong>Google Fonts</strong> serves the typefaces on this site, so your browser connects to Google when a page loads.</li>
+        </ul>
+
+        <h2 class="story__heading">How long we keep it</h2>
+        <p>We keep your request as long as we need it to talk with you about the work, and as part of our job records if we do work for you.</p>
+
+        <h2 class="story__heading">Your choices</h2>
+        <p>Email <a href={`mailto:${settings.email}`}>{settings.email}</a> or call {settings.phone}. We'll tell you what we have about you, correct it, or delete it if you ask.</p>
+
+        <h2 class="story__heading">Changes</h2>
+        <p>If we change this policy, we'll update it here and change the date at the top.</p>
       </div>
     </div>
   </section>

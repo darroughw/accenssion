@@ -687,6 +687,9 @@ em { font-style: italic; }
 .story { display: flex; flex-direction: column; gap: 20px; max-width: 720px; font-size: 18px; line-height: 31px; color: var(--c-muted); }
 .story--narrow { margin: 0 auto; }
 .story a { color: var(--c-bronze); text-decoration: underline; text-underline-offset: 3px; }
+.story ul { display: flex; flex-direction: column; gap: 10px; padding-left: 22px; list-style: disc; }
+.story li::marker { color: var(--c-bronze); }
+.story strong { color: var(--c-text); font-weight: 500; }
 .story__heading { margin-top: 20px; font-family: var(--f-display); font-weight: 400; font-size: 34px; line-height: 40px; color: var(--c-text); }
 .project__aside { display: flex; flex-direction: column; gap: 16px; padding-top: 24px; border-top: 1px solid var(--c-text); align-self: start; }
 .project__aside li a { display: block; padding: 10px 0; border-bottom: 1px solid var(--c-rule-light); font-family: var(--f-display); font-size: 22px; }
