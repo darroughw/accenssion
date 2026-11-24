@@ -15,14 +15,15 @@ const { home } = content;
 const project = content.projects.find((p) => p.slug === home.featured.project) ?? content.projects[0];
 const review = content.reviews[0];
 const homeFaqs = content.faqs.filter((f) => f.home);
+const { showCrew, showFaqs } = content.settings;
 ---
 <Base title={home.seoTitle} description={home.seoDescription}>
   <Hero hero={home.hero} />
   <FixAProblem fix={home.fix} />
   {project && <FeaturedProject featured={home.featured} project={project} />}
   <PlanAProject plan={home.plan} />
-  <Crew crew={home.crew} members={content.crewMembers} />
+  {showCrew && <Crew crew={home.crew} members={content.crewMembers} />}
   {review && <Review review={review} />}
-  <Faq {...home.faq} items={homeFaqs} id="home" />
+  {showFaqs && <Faq {...home.faq} items={homeFaqs} id="home" />}
   <Cta cta={home.cta} settings={content.settings} />
 </Base>

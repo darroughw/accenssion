@@ -116,6 +116,15 @@ Netlify environment variables:
 
 Submissions are still stored under Netlify → Forms → inspection, so nothing is lost if an email fails. Function logs are under Netlify → Logs → Functions.
 
+## Hiding unfinished sections
+
+**Site settings → Show on the site** has two switches (both off at launch):
+
+- **Show crew:** the homepage crew section and the crew + sister company section on About.
+- **Show questions & answers:** FAQ sections on the homepage and service pages, the Questions menu link, and `/faq/`. While off, `/faq/` redirects to the homepage and is left out of the sitemap.
+
+Tick the box and publish; the site rebuilds with the section back. The `_redirects` file (old Wix URLs plus the `/faq/` rule) is generated at build time in `web/astro.config.mjs`.
+
 ## What the owner can edit
 
 | In the Studio | Shows up as |

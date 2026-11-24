@@ -43,6 +43,7 @@ const photo = (a as any).photo as { src: string; alt?: string } | undefined;
     </div>
   </section>
 
+  {settings.showCrew && (
   <section class="section">
     <div class="container about-crew">
       <h2 class="h-display h-60">{a.crewHeading} <em>{a.crewHeadingAccent}</em></h2>
@@ -57,6 +58,7 @@ const photo = (a as any).photo as { src: string; alt?: string } | undefined;
       )}
     </div>
   </section>
+  )}
 
   {content.reviews[0] && <Review review={content.reviews[0]} />}
   <Cta cta={content.home.cta} settings={settings} />

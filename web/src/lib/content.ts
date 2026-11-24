@@ -74,7 +74,7 @@ const SLUG = `"slug": slug.current`;
 
 const QUERY = /* groq */ `{
   "settings": *[_type == "siteSettings"][0]{
-    phone, email, serviceArea, serviceAreaLong, licenseNumber, sisterCompany, footerAbout,
+    phone, email, showCrew, showFaqs, serviceArea, serviceAreaLong, licenseNumber, sisterCompany, footerAbout,
     headerCtaLabel, menuCtaLabel, "menuImage": menuImage${IMG}
   },
   "services": *[_type == "service"] | order(orderRank asc, name asc){
