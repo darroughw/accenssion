@@ -96,6 +96,26 @@ The form on `/contact/` sends to one of two places:
 
 Either way, the form redirects to `/contact/thanks/` and has a hidden honeypot field for spam.
 
+### Email via Resend (Netlify)
+
+`web/netlify/functions/submission-created.mjs` runs automatically after every Netlify Forms submission that passes the spam filter. It sends two emails through [Resend](https://resend.com) from `inspections@accessionbuilders.com`:
+
+1. **To Kerney:** the full request. Replying goes straight to the homeowner when they left an email.
+2. **To the homeowner** (only if they left an email): a short confirmation with the phone number.
+
+The inbox and phone come from **Site settings** in the Studio, so changing them there carries over.
+
+Netlify environment variables:
+
+| Variable | |
+|---|---|
+| `RESEND_API_KEY` | Required. A Resend API key with "Sending access" for accessionbuilders.com. |
+| `NOTIFY_EMAIL` | Optional. Send requests somewhere other than the Site settings email. |
+| `FROM_EMAIL` | Optional. Default `Accession Builders <inspections@accessionbuilders.com>`. |
+| `SEND_CONFIRMATION` | Optional. `false` turns off the homeowner confirmation. |
+
+Submissions are still stored under Netlify → Forms → inspection, so nothing is lost if an email fails. Function logs are under Netlify → Logs → Functions.
+
 ## What the owner can edit
 
 | In the Studio | Shows up as |

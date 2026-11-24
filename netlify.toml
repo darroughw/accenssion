@@ -3,10 +3,12 @@
   base = "web"
   command = "npm run build"
   publish = "dist"
+  # submission-created.mjs emails each contact-form request through Resend.
+  functions = "netlify/functions"
 
 [build.environment]
   NODE_VERSION = "24"
-  # PUBLIC_SANITY_PROJECT_ID / PUBLIC_SANITY_DATASET are set in the Netlify UI.
+  # Set in the Netlify UI: PUBLIC_SANITY_PROJECT_ID, PUBLIC_SANITY_DATASET, RESEND_API_KEY.
 
 # Long cache for fingerprinted build assets.
 [[headers]]
